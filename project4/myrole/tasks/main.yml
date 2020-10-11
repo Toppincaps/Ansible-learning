@@ -1,0 +1,16 @@
+---
+# tasks file for myrole
+- name: create file
+  file:
+    path: /tmp/motd
+    state: touch
+
+- name: copy template
+  template:
+    src: motd.j2
+    dest: /etc/motd
+    owner: root
+    group: root
+    mode: 0644
+  changed_when: true
+  notify: restart

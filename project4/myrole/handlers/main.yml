@@ -1,0 +1,4 @@
+---
+# handlers file for myrole
+- name: restart
+  shell: /usr/sbin/shutdown -r now

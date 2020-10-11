@@ -1,0 +1,22 @@
+---
+# tasks file for myrole
+- name: install httpd
+  dnf:
+    name: httpd
+    state: present
+- name: start httpd
+  service:
+    name: httpd
+    state: started
+    enabled: true
+- name: copy over template
+  template:
+    src: vhost.j2
+    dest: /etc/httpd/conf.d/vhost.conf
+    owner: root
+    group: root
+    mode: 0644
+    setype: httpd_log_t
+  changed_when: true
+  notify: restart httpd
+  notify: restorecon

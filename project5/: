@@ -1,0 +1,10 @@
+---
+- name: install from role
+  hosts: all
+  roles:
+    - role: myrole
+
+  post_tasks:
+    - name: display uptime
+      debug:
+        msg: Current uptime: {{ ansible_uptime_seconds }} 
