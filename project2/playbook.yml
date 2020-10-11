@@ -1,0 +1,47 @@
+---
+- name: vsftpd and jinja2 templates, yay!
+  hosts: all
+  tasks:
+    - name: install vsftpd
+      dnf:
+        name: vsftpd
+        state: latest
+
+    - name: open the firewall
+      firewalld:
+        service: ftp
+        state: enabled
+        permanent: true
+        immediate: yes
+
+    - name: copy over the jinja2 template
+      template:
+        src: templates/vsftp.j2
+        dest: /etc/vsftpd/vsftpd.conf
+
+    - name: set selinux permissions
+      sefcontext:
+        target: /var/ftp/pub
+        setype: public_content_t
+      notify: restorecon
+
+    - name: seboolean
+      seboolean:
+        name: ftpd_anon_write
+        persistent: yes
+        state: yes
+
+    - name: set permissions on file
+      file:
+        path: /var/ftp/pub
+        mode: 0755
+
+    - name: start vsftpd service
+      service: 
+        name: vsftpd
+        state: restarted
+        enabled: true
+
+  handlers:
+    - name: restorecon
+      shell: restorecon -v /var/ftp/pub

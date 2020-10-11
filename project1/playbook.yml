@@ -1,0 +1,26 @@
+---
+- name: lab playbook
+  hosts: web
+  tasks:
+    - name: install database packages
+      dnf:
+        name: "{{ item }}"
+        state: latest
+      loop: "{{ database_packages }}"
+      when: ansible_distribution == "8" and ansible_distribition_major_version == "CentOS"
+
+    - name: start the mariadb service
+      service:
+        name: mariadb
+        state: started
+        enabled: true
+      notify: reset-pass
+      changed_when: true
+
+  handlers:
+    - name: reset-pass
+      mysql_user:
+        name: test
+        password: password
+        encrypted: true
+        state: present

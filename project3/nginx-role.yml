@@ -1,0 +1,5 @@
+---
+- name: use galaxy nginx role
+  hosts: Ansible-managed.local
+  roles:
+    - role: geerlingguy.nginx
