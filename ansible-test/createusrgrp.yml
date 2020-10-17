@@ -1,0 +1,18 @@
+- name: create a group and some users
+  hosts: myserver
+  tasks:
+    - name: create group
+      group:
+        name: "{{ item.group }}"
+        gid: 5001
+        state: present
+      loop: "{{ users }}"
+
+    - name: create users
+      user:
+        name: "{{ item.username }}"
+        home: "{{ item.homedir }}"
+        shell: "{{ item.shell }}"
+        groups: "{{ item.group }}"
+      loop: "{{ users }}"
+

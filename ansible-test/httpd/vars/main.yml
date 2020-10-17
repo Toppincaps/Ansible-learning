@@ -1,0 +1,6 @@
+---
+# vars file for httpd
+#
+mypackage: httpd
+myservice: httpd
+myfirewall: firewalld

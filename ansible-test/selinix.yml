@@ -1,0 +1,29 @@
+---
+- name: create a file and add selinux context to it
+  hosts: all
+  tasks:
+    - name: create file
+      file:
+        path: /etc/httpd/test
+        state: touch
+
+    - name: check context
+      shell: /usr/bin/ls -lZ /etc/httpd
+      register: result
+
+    - name: show selinux context on file
+      debug:
+        msg: "{{ result.stdout }}"
+
+    - name: set selinux context for that file
+      sefcontext:
+        target: /etc/httpd/test
+        setype: httpd_config_t
+        state: present
+      when: ansible_distribution == "CentOS"
+      notify: restorecon
+      changed_when: true
+
+  handlers: 
+    - name: restorecon
+      command: restorecon -R -v /etc/httpd/test

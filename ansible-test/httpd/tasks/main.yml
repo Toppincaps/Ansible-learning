@@ -1,0 +1,48 @@
+---
+# tasks file for httpd
+
+- name: install apache
+  dnf:
+   name: "{{ mypackage }}"
+   state: present
+
+- name: create html file
+  file:
+    path: /var/www/html/index.html
+    state: touch
+
+- name: update html file
+  blockinfile:
+    path: /var/www/html/index.html
+    block: |
+      The webpage was updated successfully
+    state: present
+  notify: restartweb
+
+- name: install firewalld
+  dnf:
+    name: "{{ myfirewall }}"
+    state: present
+  
+- name: open firewall to allow http
+  firewalld:
+    service: http
+    state: enabled
+    permanent: true
+    immediate: yes
+
+- name: update /etc/hosts with template
+  template:
+    src: templates/hosts.j2
+    dest: /etc/hosts
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,8 @@
+---
+# handlers file for httpd
+#
+- name: restartweb
+  service:
+   name: "{{ myservice }}"
+   state: restarted
+   enabled: true

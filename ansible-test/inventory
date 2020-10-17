@@ -1,0 +1,5 @@
+[myserver]
+ansible-managed.local ansible_host=192.168.95.151
+
+[nodes:children]
+myserver

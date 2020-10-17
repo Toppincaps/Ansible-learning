@@ -1,0 +1,5 @@
+[packages]
+webserver = httpd
+firewall = firewalld
+webservice = httpd
+

@@ -1,0 +1,876 @@
+2020-10-17 14:15:04,476 p=9038 u=ansible n=ansible | PLAY [create a partition, then use LVM and create a volume then filesystem + mount] *********************************************************
+2020-10-17 14:15:04,484 p=9038 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 14:15:05,947 p=9038 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 14:15:05,957 p=9038 u=ansible n=ansible | TASK [create a partition] *******************************************************************************************************************
+2020-10-17 14:15:06,521 p=9038 u=ansible n=ansible | ok: [ansible-managed.local] => (item={'number': 1, 'start': '1MiB', 'end': '1GiB'})
+2020-10-17 14:15:06,533 p=9038 u=ansible n=ansible | TASK [create volume group] ******************************************************************************************************************
+2020-10-17 14:15:06,560 p=9038 u=ansible n=ansible | fatal: [ansible-managed.local]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'dict object' has no attribute 'devices'\n\nThe error appears to be in '/home/ansible/ansible/createfs.yml': line 16, column 7, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n    - name: create volume group\n      ^ here\n"}
+2020-10-17 14:15:06,562 p=9038 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 14:15:06,562 p=9038 u=ansible n=ansible | ansible-managed.local      : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-17 14:16:02,625 p=9114 u=ansible n=ansible | PLAY [create a partition, then use LVM and create a volume then filesystem + mount] *********************************************************
+2020-10-17 14:16:02,633 p=9114 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 14:16:03,787 p=9114 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 14:16:03,797 p=9114 u=ansible n=ansible | TASK [create a partition] *******************************************************************************************************************
+2020-10-17 14:16:04,349 p=9114 u=ansible n=ansible | ok: [ansible-managed.local] => (item={'number': 1, 'start': '1MiB', 'end': '1GiB'})
+2020-10-17 14:16:04,361 p=9114 u=ansible n=ansible | TASK [create volume group] ******************************************************************************************************************
+2020-10-17 14:16:04,986 p=9114 u=ansible n=ansible | failed: [ansible-managed.local] (item={'name': 'volume-group', 'devices': '/dev/sdb'}) => {"ansible_loop_var": "item", "changed": false, "err": "  Device /dev/sdb excluded by a filter.\n", "item": {"devices": "/dev/sdb", "name": "volume-group"}, "msg": "Creating physical volume '/dev/sdb' failed", "rc": 5}
+2020-10-17 14:16:04,988 p=9114 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 14:16:04,988 p=9114 u=ansible n=ansible | ansible-managed.local      : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-17 14:17:11,315 p=9178 u=ansible n=ansible | PLAY [create a partition, then use LVM and create a volume then filesystem + mount] *********************************************************
+2020-10-17 14:17:11,323 p=9178 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 14:17:12,736 p=9178 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 14:17:12,747 p=9178 u=ansible n=ansible | TASK [create a partition] *******************************************************************************************************************
+2020-10-17 14:17:13,320 p=9178 u=ansible n=ansible | ok: [ansible-managed.local] => (item={'number': 1, 'start': '1MiB', 'end': '1GiB'})
+2020-10-17 14:17:13,331 p=9178 u=ansible n=ansible | TASK [create volume group] ******************************************************************************************************************
+2020-10-17 14:17:14,013 p=9178 u=ansible n=ansible | changed: [ansible-managed.local] => (item={'name': 'volume-group', 'devices': '/dev/sdb1'})
+2020-10-17 14:17:14,025 p=9178 u=ansible n=ansible | TASK [create logical volume] ****************************************************************************************************************
+2020-10-17 14:17:14,049 p=9178 u=ansible n=ansible | fatal: [ansible-managed.local]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'item' is undefined\n\nThe error appears to be in '/home/ansible/ansible/createfs.yml': line 22, column 7, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n    - name: create logical volume\n      ^ here\n"}
+2020-10-17 14:17:14,051 p=9178 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 14:17:14,051 p=9178 u=ansible n=ansible | ansible-managed.local      : ok=3    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-17 14:19:27,821 p=9240 u=ansible n=ansible | PLAY [create a partition, then use LVM and create a volume then filesystem + mount] *********************************************************
+2020-10-17 14:19:27,829 p=9240 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 14:19:29,242 p=9240 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 14:19:29,253 p=9240 u=ansible n=ansible | TASK [create a partition] *******************************************************************************************************************
+2020-10-17 14:19:29,832 p=9240 u=ansible n=ansible | ok: [ansible-managed.local] => (item={'number': 1, 'start': '1MiB', 'end': '1GiB'})
+2020-10-17 14:19:29,845 p=9240 u=ansible n=ansible | TASK [create volume group] ******************************************************************************************************************
+2020-10-17 14:19:30,449 p=9240 u=ansible n=ansible | ok: [ansible-managed.local] => (item={'name': 'volume-group', 'devices': '/dev/sdb1'})
+2020-10-17 14:19:30,461 p=9240 u=ansible n=ansible | TASK [create logical volume] ****************************************************************************************************************
+2020-10-17 14:19:30,485 p=9240 u=ansible n=ansible | fatal: [ansible-managed.local]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'item' is undefined\n\nThe error appears to be in '/home/ansible/ansible/createfs.yml': line 22, column 7, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n    - name: create logical volume\n      ^ here\n"}
+2020-10-17 14:19:30,487 p=9240 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 14:19:30,487 p=9240 u=ansible n=ansible | ansible-managed.local      : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-17 14:20:25,283 p=9294 u=ansible n=ansible | PLAY [create a partition, then use LVM and create a volume then filesystem + mount] *********************************************************
+2020-10-17 14:20:25,292 p=9294 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 14:20:26,441 p=9294 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 14:20:26,452 p=9294 u=ansible n=ansible | TASK [create a partition] *******************************************************************************************************************
+2020-10-17 14:20:27,010 p=9294 u=ansible n=ansible | ok: [ansible-managed.local] => (item={'number': 1, 'start': '1MiB', 'end': '1GiB'})
+2020-10-17 14:20:27,023 p=9294 u=ansible n=ansible | TASK [create volume group] ******************************************************************************************************************
+2020-10-17 14:20:27,625 p=9294 u=ansible n=ansible | ok: [ansible-managed.local] => (item={'name': 'volume-group', 'devices': '/dev/sdb1'})
+2020-10-17 14:20:27,637 p=9294 u=ansible n=ansible | TASK [create logical volume] ****************************************************************************************************************
+2020-10-17 14:20:27,662 p=9294 u=ansible n=ansible | fatal: [ansible-managed.local]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'item' is undefined\n\nThe error appears to be in '/home/ansible/ansible/createfs.yml': line 22, column 7, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n    - name: create logical volume\n      ^ here\n"}
+2020-10-17 14:20:27,663 p=9294 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 14:20:27,663 p=9294 u=ansible n=ansible | ansible-managed.local      : ok=3    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-17 14:20:49,338 p=9343 u=ansible n=ansible | PLAY [create a partition, then use LVM and create a volume then filesystem + mount] *********************************************************
+2020-10-17 14:20:49,346 p=9343 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 14:20:50,497 p=9343 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 14:20:50,507 p=9343 u=ansible n=ansible | TASK [create a partition] *******************************************************************************************************************
+2020-10-17 14:20:51,082 p=9343 u=ansible n=ansible | ok: [ansible-managed.local] => (item={'number': 1, 'start': '1MiB', 'end': '1GiB'})
+2020-10-17 14:20:51,093 p=9343 u=ansible n=ansible | TASK [create volume group] ******************************************************************************************************************
+2020-10-17 14:20:51,687 p=9343 u=ansible n=ansible | ok: [ansible-managed.local] => (item={'name': 'volume-group', 'devices': '/dev/sdb1'})
+2020-10-17 14:20:51,699 p=9343 u=ansible n=ansible | TASK [create logical volume] ****************************************************************************************************************
+2020-10-17 14:20:52,395 p=9343 u=ansible n=ansible | changed: [ansible-managed.local] => (item={'name': 'logical-volume', 'size': '512M', 'vgroup': 'volume-group', 'path': '/var/log/httpd'})
+2020-10-17 14:20:52,399 p=9343 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 14:20:52,399 p=9343 u=ansible n=ansible | ansible-managed.local      : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-17 14:26:21,863 p=9435 u=ansible n=ansible | PLAY [create a partition, then use LVM and create a volume then filesystem + mount] *********************************************************
+2020-10-17 14:26:21,871 p=9435 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 14:26:23,353 p=9435 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 14:26:23,364 p=9435 u=ansible n=ansible | TASK [create a partition] *******************************************************************************************************************
+2020-10-17 14:26:23,930 p=9435 u=ansible n=ansible | ok: [ansible-managed.local] => (item={'number': 1, 'start': '1MiB', 'end': '1GiB'})
+2020-10-17 14:26:23,942 p=9435 u=ansible n=ansible | TASK [create volume group] ******************************************************************************************************************
+2020-10-17 14:26:24,534 p=9435 u=ansible n=ansible | ok: [ansible-managed.local] => (item={'name': 'volume-group', 'devices': '/dev/sdb1'})
+2020-10-17 14:26:24,545 p=9435 u=ansible n=ansible | TASK [create logical volume] ****************************************************************************************************************
+2020-10-17 14:26:25,185 p=9435 u=ansible n=ansible | ok: [ansible-managed.local] => (item={'name': 'logical-volume', 'size': '512M', 'vgroup': 'volume-group', 'path': '/var/log/httpd'})
+2020-10-17 14:26:25,197 p=9435 u=ansible n=ansible | TASK [create filesystem] ********************************************************************************************************************
+2020-10-17 14:26:25,842 p=9435 u=ansible n=ansible | changed: [ansible-managed.local] => (item={'name': 'logical-volume', 'size': '512M', 'vgroup': 'volume-group', 'path': '/var/log/httpd'})
+2020-10-17 14:26:25,853 p=9435 u=ansible n=ansible | TASK [mount the LV] *************************************************************************************************************************
+2020-10-17 14:26:26,432 p=9435 u=ansible n=ansible | changed: [ansible-managed.local] => (item={'name': 'logical-volume', 'size': '512M', 'vgroup': 'volume-group', 'path': '/var/log/httpd'})
+2020-10-17 14:26:26,435 p=9435 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 14:26:26,435 p=9435 u=ansible n=ansible | ansible-managed.local      : ok=6    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-17 14:28:33,972 p=9530 u=ansible n=ansible | ansible-managed.local | FAILED | rc=127 >>
+/bin/sh: dg: command not foundnon-zero return code
+
+2020-10-17 14:28:38,082 p=9552 u=ansible n=ansible | ansible-managed.local | CHANGED | rc=0 >>
+Filesystem                                 Size  Used Avail Use% Mounted on
+devtmpfs                                   1.9G     0  1.9G   0% /dev
+tmpfs                                      1.9G     0  1.9G   0% /dev/shm
+tmpfs                                      1.9G  8.9M  1.9G   1% /run
+tmpfs                                      1.9G     0  1.9G   0% /sys/fs/cgroup
+/dev/mapper/cl-root                         29G  4.6G   24G  16% /
+/dev/sda1                                  976M  192M  717M  22% /boot
+tmpfs                                      378M  4.0K  378M   1% /run/user/0
+/dev/mapper/volume--group-logical--volume  507M   30M  478M   6% /mnt/ansible/test
+tmpfs                                      378M  4.0K  378M   1% /run/user/1001
+
+2020-10-17 17:36:56,527 p=11276 u=ansible n=ansible | PLAY [unmount and delete part] **************************************************************************************************************
+2020-10-17 17:36:56,536 p=11276 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 17:36:58,037 p=11276 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 17:36:58,048 p=11276 u=ansible n=ansible | TASK [umount /dev/] *************************************************************************************************************************
+2020-10-17 17:36:58,570 p=11276 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 17:36:58,571 p=11276 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 17:36:58,571 p=11276 u=ansible n=ansible | ansible-managed.local      : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-17 17:37:04,949 p=11311 u=ansible n=ansible | ansible-managed.local | CHANGED | rc=0 >>
+Filesystem           Size  Used Avail Use% Mounted on
+devtmpfs             1.9G     0  1.9G   0% /dev
+tmpfs                1.9G     0  1.9G   0% /dev/shm
+tmpfs                1.9G  8.9M  1.9G   1% /run
+tmpfs                1.9G     0  1.9G   0% /sys/fs/cgroup
+/dev/mapper/cl-root   29G  4.6G   24G  16% /
+/dev/sda1            976M  192M  717M  22% /boot
+tmpfs                378M  4.0K  378M   1% /run/user/0
+tmpfs                378M  4.0K  378M   1% /run/user/1001
+
+2020-10-17 17:39:10,214 p=11362 u=ansible n=ansible | PLAY [unmount and delete part] **************************************************************************************************************
+2020-10-17 17:39:10,223 p=11362 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 17:39:11,647 p=11362 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 17:39:11,658 p=11362 u=ansible n=ansible | TASK [umount /dev/] *************************************************************************************************************************
+2020-10-17 17:39:12,167 p=11362 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 17:39:12,178 p=11362 u=ansible n=ansible | TASK [delete the LV] ************************************************************************************************************************
+2020-10-17 17:39:12,749 p=11362 u=ansible n=ansible | fatal: [ansible-managed.local]: FAILED! => {"changed": false, "msg": "Sorry, no removal of logical volume logical-volume without force=yes."}
+2020-10-17 17:39:12,750 p=11362 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 17:39:12,750 p=11362 u=ansible n=ansible | ansible-managed.local      : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-17 17:39:32,012 p=11412 u=ansible n=ansible | PLAY [unmount and delete part] **************************************************************************************************************
+2020-10-17 17:39:32,020 p=11412 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 17:39:33,173 p=11412 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 17:39:33,184 p=11412 u=ansible n=ansible | TASK [umount /dev/] *************************************************************************************************************************
+2020-10-17 17:39:33,701 p=11412 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 17:39:33,711 p=11412 u=ansible n=ansible | TASK [delete the LV] ************************************************************************************************************************
+2020-10-17 17:39:34,331 p=11412 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 17:39:34,332 p=11412 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 17:39:34,332 p=11412 u=ansible n=ansible | ansible-managed.local      : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-17 17:39:44,102 p=11449 u=ansible n=ansible | ansible-managed.local | CHANGED | rc=0 >>
+  LV   VG Attr       LSize   Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  root cl -wi-ao---- <28.54g                                                    
+  swap cl -wi-ao----   2.46g                                                    
+
+2020-10-17 17:39:49,779 p=11468 u=ansible n=ansible | ansible-managed.local | FAILED | rc=127 >>
+/bin/sh: vvs: command not foundnon-zero return code
+
+2020-10-17 17:39:53,895 p=11487 u=ansible n=ansible | ansible-managed.local | CHANGED | rc=0 >>
+  VG           #PV #LV #SN Attr   VSize    VFree   
+  cl             1   2   0 wz--n-  <31.00g       0 
+  volume-group   1   0   0 wz--n- 1020.00m 1020.00m
+
+2020-10-17 17:40:50,462 p=11516 u=ansible n=ansible | PLAY [unmount and delete part] **************************************************************************************************************
+2020-10-17 17:40:50,471 p=11516 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 17:40:52,613 p=11516 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 17:40:52,623 p=11516 u=ansible n=ansible | TASK [umount /dev/] *************************************************************************************************************************
+2020-10-17 17:40:53,130 p=11516 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 17:40:53,140 p=11516 u=ansible n=ansible | TASK [delete the LV] ************************************************************************************************************************
+2020-10-17 17:40:53,733 p=11516 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 17:40:53,744 p=11516 u=ansible n=ansible | TASK [delete the VG] ************************************************************************************************************************
+2020-10-17 17:40:54,342 p=11516 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 17:40:54,344 p=11516 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 17:40:54,344 p=11516 u=ansible n=ansible | ansible-managed.local      : ok=4    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-17 17:40:58,968 p=11562 u=ansible n=ansible | ansible-managed.local | CHANGED | rc=0 >>
+  VG #PV #LV #SN Attr   VSize   VFree
+  cl   1   2   0 wz--n- <31.00g    0 
+
+2020-10-17 17:41:50,450 p=11591 u=ansible n=ansible | ansible-managed.local | CHANGED | rc=0 >>
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda           8:0    0   32G  0 disk 
+├─sda1        8:1    0    1G  0 part /boot
+└─sda2        8:2    0   31G  0 part 
+  ├─cl-root 253:0    0 28.5G  0 lvm  /
+  └─cl-swap 253:1    0  2.5G  0 lvm  [SWAP]
+sdb           8:16   0   10G  0 disk 
+└─sdb1        8:17   0 1023M  0 part 
+sr0          11:0    1  7.7G  0 rom  
+
+2020-10-17 17:41:56,770 p=11610 u=ansible n=ansible | PLAY [unmount and delete part] **************************************************************************************************************
+2020-10-17 17:41:56,778 p=11610 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 17:41:57,912 p=11610 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 17:41:57,922 p=11610 u=ansible n=ansible | TASK [umount /dev/] *************************************************************************************************************************
+2020-10-17 17:41:58,429 p=11610 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 17:41:58,439 p=11610 u=ansible n=ansible | TASK [delete the LV] ************************************************************************************************************************
+2020-10-17 17:41:58,979 p=11610 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 17:41:58,989 p=11610 u=ansible n=ansible | TASK [delete the VG] ************************************************************************************************************************
+2020-10-17 17:41:59,521 p=11610 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 17:41:59,532 p=11610 u=ansible n=ansible | TASK [delete partition] *********************************************************************************************************************
+2020-10-17 17:42:00,059 p=11610 u=ansible n=ansible | fatal: [ansible-managed.local]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (parted) module: force Supported parameters include: align, device, flags, label, name, number, part_end, part_start, part_type, state, unit"}
+2020-10-17 17:42:00,060 p=11610 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 17:42:00,060 p=11610 u=ansible n=ansible | ansible-managed.local      : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-17 17:42:33,063 p=11682 u=ansible n=ansible | PLAY [unmount and delete part] **************************************************************************************************************
+2020-10-17 17:42:33,071 p=11682 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 17:42:34,215 p=11682 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 17:42:34,225 p=11682 u=ansible n=ansible | TASK [umount /dev/] *************************************************************************************************************************
+2020-10-17 17:42:34,732 p=11682 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 17:42:34,742 p=11682 u=ansible n=ansible | TASK [delete the LV] ************************************************************************************************************************
+2020-10-17 17:42:35,282 p=11682 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 17:42:35,293 p=11682 u=ansible n=ansible | TASK [delete the VG] ************************************************************************************************************************
+2020-10-17 17:42:35,826 p=11682 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 17:42:35,836 p=11682 u=ansible n=ansible | TASK [delete partition] *********************************************************************************************************************
+2020-10-17 17:42:36,360 p=11682 u=ansible n=ansible | fatal: [ansible-managed.local]: FAILED! => {"changed": false, "msg": "state is absent but all of the following are missing: number"}
+2020-10-17 17:42:36,362 p=11682 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 17:42:36,362 p=11682 u=ansible n=ansible | ansible-managed.local      : ok=4    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-17 17:42:59,192 p=11739 u=ansible n=ansible | PLAY [unmount and delete part] **************************************************************************************************************
+2020-10-17 17:42:59,200 p=11739 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 17:43:00,357 p=11739 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 17:43:00,367 p=11739 u=ansible n=ansible | TASK [umount /dev/] *************************************************************************************************************************
+2020-10-17 17:43:00,873 p=11739 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 17:43:00,884 p=11739 u=ansible n=ansible | TASK [delete the LV] ************************************************************************************************************************
+2020-10-17 17:43:01,427 p=11739 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 17:43:01,437 p=11739 u=ansible n=ansible | TASK [delete the VG] ************************************************************************************************************************
+2020-10-17 17:43:01,969 p=11739 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 17:43:01,980 p=11739 u=ansible n=ansible | TASK [delete partition] *********************************************************************************************************************
+2020-10-17 17:43:02,536 p=11739 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 17:43:02,538 p=11739 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 17:43:02,538 p=11739 u=ansible n=ansible | ansible-managed.local      : ok=5    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-17 17:43:07,878 p=11794 u=ansible n=ansible | ansible-managed.local | CHANGED | rc=0 >>
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda           8:0    0   32G  0 disk 
+├─sda1        8:1    0    1G  0 part /boot
+└─sda2        8:2    0   31G  0 part 
+  ├─cl-root 253:0    0 28.5G  0 lvm  /
+  └─cl-swap 253:1    0  2.5G  0 lvm  [SWAP]
+sdb           8:16   0   10G  0 disk 
+└─sdb1        8:17   0 1023M  0 part 
+sr0          11:0    1  7.7G  0 rom  
+
+2020-10-17 17:43:59,097 p=11824 u=ansible n=ansible | ansible-managed.local | CHANGED | rc=0 >>
+Warning: Unable to open /dev/sr0 read-write (Read-only file system).  /dev/sr0 has been opened read-only.
+
+2020-10-17 17:44:05,695 p=11843 u=ansible n=ansible | ansible-managed.local | CHANGED | rc=0 >>
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda           8:0    0   32G  0 disk 
+├─sda1        8:1    0    1G  0 part /boot
+└─sda2        8:2    0   31G  0 part 
+  ├─cl-root 253:0    0 28.5G  0 lvm  /
+  └─cl-swap 253:1    0  2.5G  0 lvm  [SWAP]
+sdb           8:16   0   10G  0 disk 
+└─sdb1        8:17   0 1023M  0 part 
+sr0          11:0    1  7.7G  0 rom  
+
+2020-10-17 17:44:12,828 p=11862 u=ansible n=ansible | [WARNING]: Consider using 'become', 'become_method', and 'become_user' rather than running sudo
+
+2020-10-17 17:44:12,828 p=11862 u=ansible n=ansible | ansible-managed.local | CHANGED | rc=0 >>
+Warning: Unable to open /dev/sr0 read-write (Read-only file system).  /dev/sr0 has been opened read-only.
+
+2020-10-17 17:44:26,629 p=11881 u=ansible n=ansible | [WARNING]: Consider using 'become', 'become_method', and 'become_user' rather than running sudo
+
+2020-10-17 17:44:26,630 p=11881 u=ansible n=ansible | ansible-managed.local | CHANGED | rc=0 >>
+
+
+2020-10-17 17:44:37,485 p=11910 u=ansible n=ansible | ansible-managed.local | CHANGED | rc=0 >>
+
+
+2020-10-17 17:44:42,485 p=11929 u=ansible n=ansible | ansible-managed.local | CHANGED | rc=0 >>
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda           8:0    0   32G  0 disk 
+├─sda1        8:1    0    1G  0 part /boot
+└─sda2        8:2    0   31G  0 part 
+  ├─cl-root 253:0    0 28.5G  0 lvm  /
+  └─cl-swap 253:1    0  2.5G  0 lvm  [SWAP]
+sdb           8:16   0   10G  0 disk 
+└─sdb1        8:17   0 1023M  0 part 
+sr0          11:0    1  7.7G  0 rom  
+
+2020-10-17 17:46:04,832 p=11962 u=ansible n=ansible | PLAY [unmount and delete part] **************************************************************************************************************
+2020-10-17 17:46:04,840 p=11962 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 17:46:06,265 p=11962 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 17:46:06,275 p=11962 u=ansible n=ansible | TASK [umount /dev/] *************************************************************************************************************************
+2020-10-17 17:46:06,787 p=11962 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 17:46:06,797 p=11962 u=ansible n=ansible | TASK [delete the LV] ************************************************************************************************************************
+2020-10-17 17:46:07,338 p=11962 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 17:46:07,348 p=11962 u=ansible n=ansible | TASK [delete the VG] ************************************************************************************************************************
+2020-10-17 17:46:07,879 p=11962 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 17:46:07,889 p=11962 u=ansible n=ansible | TASK [delete partition] *********************************************************************************************************************
+2020-10-17 17:46:08,477 p=11962 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 17:46:08,479 p=11962 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 17:46:08,479 p=11962 u=ansible n=ansible | ansible-managed.local      : ok=5    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-17 17:46:12,303 p=12020 u=ansible n=ansible | ansible-managed.local | CHANGED | rc=0 >>
+NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda           8:0    0   32G  0 disk 
+├─sda1        8:1    0    1G  0 part /boot
+└─sda2        8:2    0   31G  0 part 
+  ├─cl-root 253:0    0 28.5G  0 lvm  /
+  └─cl-swap 253:1    0  2.5G  0 lvm  [SWAP]
+sdb           8:16   0   10G  0 disk 
+sr0          11:0    1  7.7G  0 rom  
+
+2020-10-17 18:28:39,142 p=12540 u=ansible n=ansible | PLAY [create a new xfs from scratch + mount] ************************************************************************************************
+2020-10-17 18:28:39,151 p=12540 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 18:28:40,643 p=12540 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:28:40,654 p=12540 u=ansible n=ansible | TASK [create partition] *********************************************************************************************************************
+2020-10-17 18:28:41,153 p=12540 u=ansible n=ansible | fatal: [ansible-managed.local]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (parted) module: part-end, part-start Supported parameters include: align, device, flags, label, name, number, part_end, part_start, part_type, state, unit"}
+2020-10-17 18:28:41,154 p=12540 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 18:28:41,154 p=12540 u=ansible n=ansible | ansible-managed.local      : ok=1    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-17 18:29:43,724 p=12585 u=ansible n=ansible | PLAY [create a new xfs from scratch + mount] ************************************************************************************************
+2020-10-17 18:29:43,732 p=12585 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 18:29:45,126 p=12585 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:29:45,136 p=12585 u=ansible n=ansible | TASK [create partition] *********************************************************************************************************************
+2020-10-17 18:29:45,712 p=12585 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:29:45,723 p=12585 u=ansible n=ansible | TASK [create volume group] ******************************************************************************************************************
+2020-10-17 18:29:46,218 p=12585 u=ansible n=ansible | fatal: [ansible-managed.local]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (lvg) module: name Supported parameters include: force, pesize, pv_options, pvs, state, vg, vg_options"}
+2020-10-17 18:29:46,219 p=12585 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 18:29:46,219 p=12585 u=ansible n=ansible | ansible-managed.local      : ok=2    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-17 18:30:21,563 p=12628 u=ansible n=ansible | PLAY [create a new xfs from scratch + mount] ************************************************************************************************
+2020-10-17 18:30:21,571 p=12628 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 18:30:22,704 p=12628 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:30:22,714 p=12628 u=ansible n=ansible | TASK [create partition] *********************************************************************************************************************
+2020-10-17 18:30:23,272 p=12628 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:30:23,282 p=12628 u=ansible n=ansible | TASK [create volume group] ******************************************************************************************************************
+2020-10-17 18:30:23,774 p=12628 u=ansible n=ansible | fatal: [ansible-managed.local]: FAILED! => {"changed": false, "msg": "Unsupported parameters for (lvg) module: name Supported parameters include: force, pesize, pv_options, pvs, state, vg, vg_options"}
+2020-10-17 18:30:23,776 p=12628 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 18:30:23,776 p=12628 u=ansible n=ansible | ansible-managed.local      : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-17 18:31:12,257 p=12675 u=ansible n=ansible | PLAY [create a new xfs from scratch + mount] ************************************************************************************************
+2020-10-17 18:31:12,266 p=12675 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 18:31:13,412 p=12675 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:31:13,423 p=12675 u=ansible n=ansible | TASK [create partition] *********************************************************************************************************************
+2020-10-17 18:31:13,957 p=12675 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:31:13,967 p=12675 u=ansible n=ansible | TASK [create volume group] ******************************************************************************************************************
+2020-10-17 18:31:14,634 p=12675 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:31:14,644 p=12675 u=ansible n=ansible | TASK [create LV] ****************************************************************************************************************************
+2020-10-17 18:31:15,304 p=12675 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:31:15,314 p=12675 u=ansible n=ansible | TASK [create filesystem] ********************************************************************************************************************
+2020-10-17 18:31:15,970 p=12675 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:31:15,980 p=12675 u=ansible n=ansible | TASK [create create new mount point] ********************************************************************************************************
+2020-10-17 18:31:16,517 p=12675 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:31:16,528 p=12675 u=ansible n=ansible | TASK [mount the fs] *************************************************************************************************************************
+2020-10-17 18:31:17,052 p=12675 u=ansible n=ansible | fatal: [ansible-managed.local]: FAILED! => {"changed": false, "msg": "missing required arguments: state"}
+2020-10-17 18:31:17,053 p=12675 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 18:31:17,053 p=12675 u=ansible n=ansible | ansible-managed.local      : ok=6    changed=4    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-17 18:32:23,581 p=12774 u=ansible n=ansible | PLAY [create a new xfs from scratch + mount] ************************************************************************************************
+2020-10-17 18:32:23,589 p=12774 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 18:32:25,005 p=12774 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:32:25,015 p=12774 u=ansible n=ansible | TASK [create partition] *********************************************************************************************************************
+2020-10-17 18:32:25,563 p=12774 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:32:25,573 p=12774 u=ansible n=ansible | TASK [create volume group] ******************************************************************************************************************
+2020-10-17 18:32:26,140 p=12774 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:32:26,151 p=12774 u=ansible n=ansible | TASK [create LV] ****************************************************************************************************************************
+2020-10-17 18:32:26,785 p=12774 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:32:26,796 p=12774 u=ansible n=ansible | TASK [create filesystem] ********************************************************************************************************************
+2020-10-17 18:32:27,334 p=12774 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:32:27,345 p=12774 u=ansible n=ansible | TASK [create create new mount point] ********************************************************************************************************
+2020-10-17 18:32:27,883 p=12774 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:32:27,894 p=12774 u=ansible n=ansible | TASK [mount the fs] *************************************************************************************************************************
+2020-10-17 18:32:28,419 p=12774 u=ansible n=ansible | fatal: [ansible-managed.local]: FAILED! => {"changed": false, "msg": "state is mounted but all of the following are missing: fstype"}
+2020-10-17 18:32:28,420 p=12774 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 18:32:28,420 p=12774 u=ansible n=ansible | ansible-managed.local      : ok=6    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-17 18:33:00,029 p=12861 u=ansible n=ansible | PLAY [create a new xfs from scratch + mount] ************************************************************************************************
+2020-10-17 18:33:00,038 p=12861 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 18:33:01,217 p=12861 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:33:01,228 p=12861 u=ansible n=ansible | TASK [create partition] *********************************************************************************************************************
+2020-10-17 18:33:01,777 p=12861 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:33:01,788 p=12861 u=ansible n=ansible | TASK [create volume group] ******************************************************************************************************************
+2020-10-17 18:33:02,364 p=12861 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:33:02,375 p=12861 u=ansible n=ansible | TASK [create LV] ****************************************************************************************************************************
+2020-10-17 18:33:03,012 p=12861 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:33:03,023 p=12861 u=ansible n=ansible | TASK [create filesystem] ********************************************************************************************************************
+2020-10-17 18:33:03,565 p=12861 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:33:03,576 p=12861 u=ansible n=ansible | TASK [create create new mount point] ********************************************************************************************************
+2020-10-17 18:33:04,115 p=12861 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:33:04,126 p=12861 u=ansible n=ansible | TASK [mount the fs] *************************************************************************************************************************
+2020-10-17 18:33:04,695 p=12861 u=ansible n=ansible | fatal: [ansible-managed.local]: FAILED! => {"changed": false, "msg": "Error mounting /mnt/testmounti: mount: /mnt/testmounti: mount point is not a directory.\n"}
+2020-10-17 18:33:04,696 p=12861 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 18:33:04,696 p=12861 u=ansible n=ansible | ansible-managed.local      : ok=6    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-17 18:33:40,652 p=12945 u=ansible n=ansible | PLAY [create a new xfs from scratch + mount] ************************************************************************************************
+2020-10-17 18:33:40,660 p=12945 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 18:33:41,819 p=12945 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:33:41,830 p=12945 u=ansible n=ansible | TASK [create partition] *********************************************************************************************************************
+2020-10-17 18:33:42,370 p=12945 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:33:42,381 p=12945 u=ansible n=ansible | TASK [create volume group] ******************************************************************************************************************
+2020-10-17 18:33:42,954 p=12945 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:33:42,965 p=12945 u=ansible n=ansible | TASK [create LV] ****************************************************************************************************************************
+2020-10-17 18:33:43,566 p=12945 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:33:43,577 p=12945 u=ansible n=ansible | TASK [create filesystem] ********************************************************************************************************************
+2020-10-17 18:33:44,116 p=12945 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:33:44,127 p=12945 u=ansible n=ansible | TASK [create create new mount point] ********************************************************************************************************
+2020-10-17 18:33:44,666 p=12945 u=ansible n=ansible | fatal: [ansible-managed.local]: FAILED! => {"changed": false, "gid": 0, "group": "root", "mode": "0644", "msg": "/mnt/testmounti already exists as a file", "owner": "root", "path": "/mnt/testmounti", "secontext": "unconfined_u:object_r:mnt_t:s0", "size": 0, "state": "file", "uid": 0}
+2020-10-17 18:33:44,667 p=12945 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 18:33:44,667 p=12945 u=ansible n=ansible | ansible-managed.local      : ok=5    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-17 18:34:48,837 p=13018 u=ansible n=ansible | ansible-managed.local | CHANGED => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": true,
+    "path": "/mnt/testmounti",
+    "state": "absent"
+}
+2020-10-17 18:34:53,015 p=13040 u=ansible n=ansible | PLAY [create a new xfs from scratch + mount] ************************************************************************************************
+2020-10-17 18:34:53,023 p=13040 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 18:34:54,183 p=13040 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:34:54,193 p=13040 u=ansible n=ansible | TASK [create partition] *********************************************************************************************************************
+2020-10-17 18:34:54,739 p=13040 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:34:54,750 p=13040 u=ansible n=ansible | TASK [create volume group] ******************************************************************************************************************
+2020-10-17 18:34:55,319 p=13040 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:34:55,329 p=13040 u=ansible n=ansible | TASK [create LV] ****************************************************************************************************************************
+2020-10-17 18:34:55,930 p=13040 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:34:55,940 p=13040 u=ansible n=ansible | TASK [create filesystem] ********************************************************************************************************************
+2020-10-17 18:34:56,481 p=13040 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:34:56,492 p=13040 u=ansible n=ansible | TASK [create create new mount point] ********************************************************************************************************
+2020-10-17 18:34:57,031 p=13040 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:34:57,041 p=13040 u=ansible n=ansible | TASK [mount the fs] *************************************************************************************************************************
+2020-10-17 18:34:57,602 p=13040 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:34:57,604 p=13040 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 18:34:57,604 p=13040 u=ansible n=ansible | ansible-managed.local      : ok=7    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-17 18:35:10,217 p=13116 u=ansible n=ansible | PLAY [unmount and delete part] **************************************************************************************************************
+2020-10-17 18:35:10,225 p=13116 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 18:35:11,381 p=13116 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:35:11,392 p=13116 u=ansible n=ansible | TASK [umount /dev/] *************************************************************************************************************************
+2020-10-17 18:35:11,902 p=13116 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:35:11,913 p=13116 u=ansible n=ansible | TASK [delete the LV] ************************************************************************************************************************
+2020-10-17 18:35:12,520 p=13116 u=ansible n=ansible | fatal: [ansible-managed.local]: FAILED! => {"changed": false, "err": "  Logical volume volume-group/logical-volume contains a filesystem in use.\n", "msg": "Failed to remove logical volume logical-volume", "rc": 5}
+2020-10-17 18:35:12,521 p=13116 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 18:35:12,521 p=13116 u=ansible n=ansible | ansible-managed.local      : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-17 18:35:36,310 p=13172 u=ansible n=ansible | PLAY [unmount and delete part] **************************************************************************************************************
+2020-10-17 18:35:36,318 p=13172 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 18:35:37,072 p=13172 u=ansible n=ansible |  [ERROR]: User interrupted execution
+
+2020-10-17 18:36:58,498 p=13205 u=ansible n=ansible | PLAY [unmount and delete part] **************************************************************************************************************
+2020-10-17 18:36:58,506 p=13205 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 18:36:59,927 p=13205 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:36:59,938 p=13205 u=ansible n=ansible | TASK [umount /dev/] *************************************************************************************************************************
+2020-10-17 18:37:00,470 p=13205 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:37:00,481 p=13205 u=ansible n=ansible | TASK [delete the LV] ************************************************************************************************************************
+2020-10-17 18:37:01,109 p=13205 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:37:01,120 p=13205 u=ansible n=ansible | TASK [delete the VG] ************************************************************************************************************************
+2020-10-17 18:37:01,725 p=13205 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:37:01,736 p=13205 u=ansible n=ansible | TASK [delete partition] *********************************************************************************************************************
+2020-10-17 18:37:04,309 p=13205 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:37:04,310 p=13205 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 18:37:04,311 p=13205 u=ansible n=ansible | ansible-managed.local      : ok=5    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-17 18:37:20,888 p=13271 u=ansible n=ansible | PLAY [create a new xfs from scratch + mount] ************************************************************************************************
+2020-10-17 18:37:20,896 p=13271 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 18:37:22,053 p=13271 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:37:22,063 p=13271 u=ansible n=ansible | TASK [create partition] *********************************************************************************************************************
+2020-10-17 18:37:22,631 p=13271 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:37:22,641 p=13271 u=ansible n=ansible | TASK [create volume group] ******************************************************************************************************************
+2020-10-17 18:37:23,309 p=13271 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:37:23,319 p=13271 u=ansible n=ansible | TASK [create LV] ****************************************************************************************************************************
+2020-10-17 18:37:23,954 p=13271 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:37:23,965 p=13271 u=ansible n=ansible | TASK [create filesystem] ********************************************************************************************************************
+2020-10-17 18:37:24,618 p=13271 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:37:24,629 p=13271 u=ansible n=ansible | TASK [create create new mount point] ********************************************************************************************************
+2020-10-17 18:37:25,167 p=13271 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:37:25,178 p=13271 u=ansible n=ansible | TASK [mount the fs] *************************************************************************************************************************
+2020-10-17 18:37:25,737 p=13271 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:37:25,738 p=13271 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 18:37:25,738 p=13271 u=ansible n=ansible | ansible-managed.local      : ok=7    changed=6    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-17 18:37:39,963 p=13352 u=ansible n=ansible | PLAY [unmount and delete part] **************************************************************************************************************
+2020-10-17 18:37:39,971 p=13352 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 18:37:41,127 p=13352 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:37:41,138 p=13352 u=ansible n=ansible | TASK [umount /dev/] *************************************************************************************************************************
+2020-10-17 18:37:41,664 p=13352 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:37:41,674 p=13352 u=ansible n=ansible | TASK [delete the LV] ************************************************************************************************************************
+2020-10-17 18:37:41,798 p=13352 u=ansible n=ansible |  [ERROR]: User interrupted execution
+
+2020-10-17 18:40:12,449 p=13413 u=ansible n=ansible | PLAY [unmount and delete part] **************************************************************************************************************
+2020-10-17 18:40:12,458 p=13413 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 18:40:13,877 p=13413 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:40:13,888 p=13413 u=ansible n=ansible | TASK [umount /dev/] *************************************************************************************************************************
+2020-10-17 18:40:14,399 p=13413 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:40:14,410 p=13413 u=ansible n=ansible | TASK [delete the LV] ************************************************************************************************************************
+2020-10-17 18:40:15,035 p=13413 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:40:15,046 p=13413 u=ansible n=ansible | TASK [delete the VG] ************************************************************************************************************************
+2020-10-17 18:40:15,644 p=13413 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:40:15,655 p=13413 u=ansible n=ansible | TASK [delete partition] *********************************************************************************************************************
+2020-10-17 18:40:16,244 p=13413 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:40:16,246 p=13413 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 18:40:16,246 p=13413 u=ansible n=ansible | ansible-managed.local      : ok=5    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-17 18:40:27,194 p=13475 u=ansible n=ansible | PLAY [create a new xfs from scratch + mount] ************************************************************************************************
+2020-10-17 18:40:27,203 p=13475 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 18:40:28,339 p=13475 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 18:40:28,349 p=13475 u=ansible n=ansible | TASK [create partition] *********************************************************************************************************************
+2020-10-17 18:40:28,930 p=13475 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:40:28,940 p=13475 u=ansible n=ansible | TASK [create volume group] ******************************************************************************************************************
+2020-10-17 18:40:29,609 p=13475 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:40:29,619 p=13475 u=ansible n=ansible | TASK [create LV] ****************************************************************************************************************************
+2020-10-17 18:40:30,271 p=13475 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:40:30,281 p=13475 u=ansible n=ansible | TASK [create filesystem] ********************************************************************************************************************
+2020-10-17 18:40:30,946 p=13475 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:40:30,956 p=13475 u=ansible n=ansible | TASK [create create new mount point] ********************************************************************************************************
+2020-10-17 18:40:31,495 p=13475 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:40:31,505 p=13475 u=ansible n=ansible | TASK [mount the fs] *************************************************************************************************************************
+2020-10-17 18:40:32,078 p=13475 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:40:32,089 p=13475 u=ansible n=ansible | TASK [update fstab] *************************************************************************************************************************
+2020-10-17 18:40:32,622 p=13475 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 18:40:32,623 p=13475 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 18:40:32,623 p=13475 u=ansible n=ansible | ansible-managed.local      : ok=8    changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-17 18:44:09,761 p=13604 u=ansible n=ansible | - Role myrole was created successfully
+2020-10-17 18:46:52,977 p=13650 u=ansible n=ansible | - Role httpd was created successfully
+2020-10-17 19:15:02,777 p=14135 u=ansible n=ansible | ERROR! A malformed role declaration was encountered.
+
+The error appears to be in '/home/ansible/ansible/role-playbook.yml': line 2, column 3, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+---
+- name: play the httpd role [from playrole.yml]
+  ^ here
+
+2020-10-17 19:17:06,607 p=14160 u=ansible n=ansible | ERROR! failed to combine variables, expected dicts but got a 'dict' and a 'AnsibleUnicode': 
+{}
+"package = httpd service = httpd firewall = firewalld"
+2020-10-17 19:18:47,620 p=14252 u=ansible n=ansible | ERROR! failed to combine variables, expected dicts but got a 'dict' and a 'AnsibleUnicode': 
+{}
+"mypackage = httpd myservice = httpd myfirewall = firewalld"
+2020-10-17 19:19:00,670 p=14258 u=ansible n=ansible | ansible-playbook 2.9.14
+  config file = /home/ansible/ansible/ansible.cfg
+  configured module search path = ['/home/ansible/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.6/site-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.6.8 (default, Apr 16 2020, 01:36:27) [GCC 8.3.1 20191121 (Red Hat 8.3.1-5)]
+2020-10-17 19:19:00,670 p=14258 u=ansible n=ansible | Using /home/ansible/ansible/ansible.cfg as config file
+2020-10-17 19:19:00,809 p=14258 u=ansible n=ansible | ERROR! failed to combine variables, expected dicts but got a 'dict' and a 'AnsibleUnicode': 
+{}
+"mypackage = httpd myservice = httpd myfirewall = firewalld"
+2020-10-17 19:22:01,205 p=14348 u=ansible n=ansible | ansible-playbook 2.9.14
+  config file = /home/ansible/ansible/ansible.cfg
+  configured module search path = ['/home/ansible/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.6/site-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.6.8 (default, Apr 16 2020, 01:36:27) [GCC 8.3.1 20191121 (Red Hat 8.3.1-5)]
+2020-10-17 19:22:01,206 p=14348 u=ansible n=ansible | Using /home/ansible/ansible/ansible.cfg as config file
+2020-10-17 19:22:01,344 p=14348 u=ansible n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  block sequence entries are not allowed in this context
+
+The error appears to be in '/home/ansible/ansible/httpd/meta/main.yml': line 4, column 12, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  description: admin
+  company: -
+           ^ here
+
+2020-10-17 19:24:22,840 p=14405 u=ansible n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  block sequence entries are not allowed in this context
+
+The error appears to be in '/home/ansible/ansible/httpd/meta/main.yml': line 4, column 12, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+  description: admin
+  company: -
+           ^ here
+
+2020-10-17 19:25:14,005 p=14447 u=ansible n=ansible | PLAY [play the httpd role [from playrole.yml]] **********************************************************************************************
+2020-10-17 19:25:14,013 p=14447 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 19:25:15,522 p=14447 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 19:25:15,533 p=14447 u=ansible n=ansible | TASK [httpd : install apache] ***************************************************************************************************************
+2020-10-17 19:25:17,072 p=14447 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 19:25:17,083 p=14447 u=ansible n=ansible | TASK [httpd : create html file] *************************************************************************************************************
+2020-10-17 19:25:17,625 p=14447 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 19:25:17,636 p=14447 u=ansible n=ansible | TASK [httpd : update html file] *************************************************************************************************************
+2020-10-17 19:25:18,162 p=14447 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 19:25:18,174 p=14447 u=ansible n=ansible | TASK [httpd : install firewalld] ************************************************************************************************************
+2020-10-17 19:25:19,441 p=14447 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 19:25:19,452 p=14447 u=ansible n=ansible | TASK [httpd : open firewall to allow http] **************************************************************************************************
+2020-10-17 19:25:20,141 p=14447 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 19:25:20,153 p=14447 u=ansible n=ansible | TASK [httpd : update /etc/hosts with template] **********************************************************************************************
+2020-10-17 19:25:21,166 p=14447 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 19:25:21,166 p=14447 u=ansible n=ansible | RUNNING HANDLER [httpd : restartweb] ********************************************************************************************************
+2020-10-17 19:25:23,004 p=14447 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 19:25:23,015 p=14447 u=ansible n=ansible | TASK [create random file] *******************************************************************************************************************
+2020-10-17 19:25:23,428 p=14447 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 19:25:23,431 p=14447 u=ansible n=ansible | PLAY [is the web file reachable?] ***********************************************************************************************************
+2020-10-17 19:25:23,434 p=14447 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 19:25:23,933 p=14447 u=ansible n=ansible | ok: [localhost]
+2020-10-17 19:25:23,943 p=14447 u=ansible n=ansible | TASK [check reachability url] ***************************************************************************************************************
+2020-10-17 19:25:24,337 p=14447 u=ansible n=ansible | ok: [localhost]
+2020-10-17 19:25:24,347 p=14447 u=ansible n=ansible | TASK [check reachability port] **************************************************************************************************************
+2020-10-17 19:25:24,627 p=14447 u=ansible n=ansible | changed: [localhost]
+2020-10-17 19:25:24,628 p=14447 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 19:25:24,629 p=14447 u=ansible n=ansible | ansible-managed.local      : ok=9    changed=5    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-17 19:25:24,629 p=14447 u=ansible n=ansible | localhost                  : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-17 19:25:34,446 p=14655 u=ansible n=ansible | ansible-playbook 2.9.14
+  config file = /home/ansible/ansible/ansible.cfg
+  configured module search path = ['/home/ansible/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.6/site-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.6.8 (default, Apr 16 2020, 01:36:27) [GCC 8.3.1 20191121 (Red Hat 8.3.1-5)]
+2020-10-17 19:25:34,446 p=14655 u=ansible n=ansible | Using /home/ansible/ansible/ansible.cfg as config file
+2020-10-17 19:25:34,759 p=14655 u=ansible n=ansible | PLAYBOOK: role-playbook.yml *****************************************************************************************************************
+2020-10-17 19:25:34,760 p=14655 u=ansible n=ansible | 2 plays in role-playbook.yml
+2020-10-17 19:25:34,762 p=14655 u=ansible n=ansible | PLAY [play the httpd role [from playrole.yml]] **********************************************************************************************
+2020-10-17 19:25:34,770 p=14655 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 19:25:35,925 p=14655 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 19:25:35,925 p=14655 u=ansible n=ansible | META: ran handlers
+2020-10-17 19:25:35,936 p=14655 u=ansible n=ansible | TASK [httpd : install apache] ***************************************************************************************************************
+2020-10-17 19:25:37,331 p=14655 u=ansible n=ansible | ok: [ansible-managed.local] => {"changed": false, "msg": "Nothing to do", "rc": 0, "results": []}
+2020-10-17 19:25:37,342 p=14655 u=ansible n=ansible | TASK [httpd : create html file] *************************************************************************************************************
+2020-10-17 19:25:37,885 p=14655 u=ansible n=ansible | changed: [ansible-managed.local] => {"changed": true, "dest": "/var/www/html/index.html", "gid": 0, "group": "root", "mode": "0644", "owner": "root", "secontext": "unconfined_u:object_r:httpd_sys_content_t:s0", "size": 94, "state": "file", "uid": 0}
+2020-10-17 19:25:37,896 p=14655 u=ansible n=ansible | TASK [httpd : update html file] *************************************************************************************************************
+2020-10-17 19:25:38,422 p=14655 u=ansible n=ansible | ok: [ansible-managed.local] => {"changed": false, "msg": ""}
+2020-10-17 19:25:38,433 p=14655 u=ansible n=ansible | TASK [httpd : install firewalld] ************************************************************************************************************
+2020-10-17 19:25:39,700 p=14655 u=ansible n=ansible | ok: [ansible-managed.local] => {"changed": false, "msg": "Nothing to do", "rc": 0, "results": []}
+2020-10-17 19:25:39,711 p=14655 u=ansible n=ansible | TASK [httpd : open firewall to allow http] **************************************************************************************************
+2020-10-17 19:25:40,395 p=14655 u=ansible n=ansible | ok: [ansible-managed.local] => {"changed": false, "msg": "Permanent and Non-Permanent(immediate) operation"}
+2020-10-17 19:25:40,407 p=14655 u=ansible n=ansible | TASK [httpd : update /etc/hosts with template] **********************************************************************************************
+2020-10-17 19:25:41,236 p=14655 u=ansible n=ansible | ok: [ansible-managed.local] => {"changed": false, "checksum": "3c176439a5493eac74700244454685dccced7ca6", "dest": "/etc/hosts", "gid": 0, "group": "root", "mode": "0644", "owner": "root", "path": "/etc/hosts", "secontext": "system_u:object_r:net_conf_t:s0", "size": 53, "state": "file", "uid": 0}
+2020-10-17 19:25:41,237 p=14655 u=ansible n=ansible | META: ran handlers
+2020-10-17 19:25:41,248 p=14655 u=ansible n=ansible | TASK [create random file] *******************************************************************************************************************
+2020-10-17 19:25:41,663 p=14655 u=ansible n=ansible | changed: [ansible-managed.local] => {"changed": true, "dest": "/tmp/testfile", "gid": 0, "group": "root", "mode": "0644", "owner": "root", "secontext": "unconfined_u:object_r:user_tmp_t:s0", "size": 0, "state": "file", "uid": 0}
+2020-10-17 19:25:41,664 p=14655 u=ansible n=ansible | META: ran handlers
+2020-10-17 19:25:41,666 p=14655 u=ansible n=ansible | PLAY [is the web file reachable?] ***********************************************************************************************************
+2020-10-17 19:25:41,670 p=14655 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 19:25:42,121 p=14655 u=ansible n=ansible | ok: [localhost]
+2020-10-17 19:25:42,122 p=14655 u=ansible n=ansible | META: ran handlers
+2020-10-17 19:25:42,131 p=14655 u=ansible n=ansible | TASK [check reachability url] ***************************************************************************************************************
+2020-10-17 19:25:42,521 p=14655 u=ansible n=ansible | ok: [localhost] => {"accept_ranges": "bytes", "changed": false, "connection": "close", "content": "# BEGIN ANSIBLE MANAGED BLOCK\nThe webpage was updated successfully\n# END ANSIBLE MANAGED BLOCK", "content_length": "94", "content_type": "text/html; charset=UTF-8", "cookies": {}, "cookies_string": "", "date": "Sat, 17 Oct 2020 17:25:42 GMT", "elapsed": 0, "etag": "\"5e-5b1e12b6c45b8\"", "last_modified": "Sat, 17 Oct 2020 17:25:37 GMT", "msg": "OK (94 bytes)", "redirected": false, "server": "Apache/2.4.37 (centos)", "status": 200, "url": "http://ansible-managed.local"}
+2020-10-17 19:25:42,531 p=14655 u=ansible n=ansible | TASK [check reachability port] **************************************************************************************************************
+2020-10-17 19:25:42,809 p=14655 u=ansible n=ansible | changed: [localhost] => {"changed": true, "cmd": "/usr/bin/nc ansible-managed.local 80", "delta": "0:00:00.010463", "end": "2020-10-17 19:25:42.791477", "rc": 0, "start": "2020-10-17 19:25:42.781014", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+2020-10-17 19:25:42,810 p=14655 u=ansible n=ansible | META: ran handlers
+2020-10-17 19:25:42,810 p=14655 u=ansible n=ansible | META: ran handlers
+2020-10-17 19:25:42,811 p=14655 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 19:25:42,811 p=14655 u=ansible n=ansible | ansible-managed.local      : ok=8    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-17 19:25:42,811 p=14655 u=ansible n=ansible | localhost                  : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-17 19:56:24,806 p=15133 u=ansible n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/home/ansible/ansible/selinix.yml': line 14, column 4, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+   - name: show selinux context on file
+   ^ here
+
+2020-10-17 19:57:00,696 p=15149 u=ansible n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  did not find expected key
+
+The error appears to be in '/home/ansible/ansible/selinix.yml': line 14, column 4, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+   - name: show selinux context on file
+   ^ here
+
+2020-10-17 19:58:08,383 p=15165 u=ansible n=ansible | PLAY [create a file and add selinux context to it] ******************************************************************************************
+2020-10-17 19:58:08,391 p=15165 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 19:58:09,904 p=15165 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 19:58:09,915 p=15165 u=ansible n=ansible | TASK [create file] **************************************************************************************************************************
+2020-10-17 19:58:10,433 p=15165 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 19:58:10,445 p=15165 u=ansible n=ansible | TASK [check context] ************************************************************************************************************************
+2020-10-17 19:58:10,948 p=15165 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 19:58:10,960 p=15165 u=ansible n=ansible | TASK [show selinux context on file] *********************************************************************************************************
+2020-10-17 19:58:10,972 p=15165 u=ansible n=ansible | ok: [ansible-managed.local] => {
+    "msg": "result.rc == 0"
+}
+2020-10-17 19:58:10,973 p=15165 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 19:58:10,973 p=15165 u=ansible n=ansible | ansible-managed.local      : ok=4    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-17 19:58:33,687 p=15220 u=ansible n=ansible | ERROR! conflicting action statements: debug, verbosity
+
+The error appears to be in '/home/ansible/ansible/selinix.yml': line 14, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+    - name: show selinux context on file
+      ^ here
+
+2020-10-17 19:58:52,687 p=15228 u=ansible n=ansible | ERROR! conflicting action statements: debug, verbosity
+
+The error appears to be in '/home/ansible/ansible/selinix.yml': line 14, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+    - name: show selinux context on file
+      ^ here
+
+2020-10-17 19:59:46,647 p=15247 u=ansible n=ansible | ERROR! conflicting action statements: debug, verbosity
+
+The error appears to be in '/home/ansible/ansible/selinix.yml': line 14, column 7, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+    - name: show selinux context on file
+      ^ here
+
+2020-10-17 19:59:54,518 p=15255 u=ansible n=ansible | PLAY [create a file and add selinux context to it] ******************************************************************************************
+2020-10-17 19:59:54,526 p=15255 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 19:59:55,968 p=15255 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 19:59:55,979 p=15255 u=ansible n=ansible | TASK [create file] **************************************************************************************************************************
+2020-10-17 19:59:56,499 p=15255 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 19:59:56,511 p=15255 u=ansible n=ansible | TASK [check context] ************************************************************************************************************************
+2020-10-17 19:59:57,016 p=15255 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 19:59:57,028 p=15255 u=ansible n=ansible | TASK [show selinux context on file] *********************************************************************************************************
+2020-10-17 19:59:57,039 p=15255 u=ansible n=ansible | ok: [ansible-managed.local] => {
+    "msg": "result.stdout"
+}
+2020-10-17 19:59:57,041 p=15255 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 19:59:57,041 p=15255 u=ansible n=ansible | ansible-managed.local      : ok=4    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-17 20:00:01,615 p=15297 u=ansible n=ansible | ansible-playbook 2.9.14
+  config file = /home/ansible/ansible/ansible.cfg
+  configured module search path = ['/home/ansible/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.6/site-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.6.8 (default, Apr 16 2020, 01:36:27) [GCC 8.3.1 20191121 (Red Hat 8.3.1-5)]
+2020-10-17 20:00:01,616 p=15297 u=ansible n=ansible | Using /home/ansible/ansible/ansible.cfg as config file
+2020-10-17 20:00:01,808 p=15297 u=ansible n=ansible | PLAYBOOK: selinix.yml ***********************************************************************************************************************
+2020-10-17 20:00:01,808 p=15297 u=ansible n=ansible | 1 plays in selinix.yml
+2020-10-17 20:00:01,810 p=15297 u=ansible n=ansible | PLAY [create a file and add selinux context to it] ******************************************************************************************
+2020-10-17 20:00:01,817 p=15297 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 20:00:02,976 p=15297 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 20:00:02,976 p=15297 u=ansible n=ansible | META: ran handlers
+2020-10-17 20:00:02,987 p=15297 u=ansible n=ansible | TASK [create file] **************************************************************************************************************************
+2020-10-17 20:00:03,503 p=15297 u=ansible n=ansible | changed: [ansible-managed.local] => {"changed": true, "dest": "/etc/httpd/test", "gid": 0, "group": "root", "mode": "0644", "owner": "root", "secontext": "unconfined_u:object_r:httpd_config_t:s0", "size": 0, "state": "file", "uid": 0}
+2020-10-17 20:00:03,515 p=15297 u=ansible n=ansible | TASK [check context] ************************************************************************************************************************
+2020-10-17 20:00:04,017 p=15297 u=ansible n=ansible | changed: [ansible-managed.local] => {"changed": true, "cmd": "/usr/bin/ls -lZ /etc/httpd", "delta": "0:00:00.004052", "end": "2020-10-17 14:00:03.961257", "rc": 0, "start": "2020-10-17 14:00:03.957205", "stderr": "", "stderr_lines": [], "stdout": "total 0\ndrwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0      37 Oct 11 13:59 conf\ndrwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0       6 Oct 17 07:11 conf.d\ndrwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0     226 Oct 11 13:59 conf.modules.d\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_log_t:s0         19 Sep 15 11:42 logs -> ../../var/log/httpd\ndrwxr-xr-x. 2 root root unconfined_u:object_r:httpd_log_t:s0     40 Oct 11 16:54 Logs\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_modules_t:s0     29 Sep 15 11:42 modules -> ../../usr/lib64/httpd/modules\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_config_t:s0      10 Sep 15 11:42 run -> /run/httpd\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_config_t:s0      19 Sep 15 11:42 state -> ../../var/lib/httpd\n-rw-r--r--. 1 root root unconfined_u:object_r:httpd_config_t:s0   0 Oct 17 14:00 test", "stdout_lines": ["total 0", "drwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0      37 Oct 11 13:59 conf", "drwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0       6 Oct 17 07:11 conf.d", "drwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0     226 Oct 11 13:59 conf.modules.d", "lrwxrwxrwx. 1 root root system_u:object_r:httpd_log_t:s0         19 Sep 15 11:42 logs -> ../../var/log/httpd", "drwxr-xr-x. 2 root root unconfined_u:object_r:httpd_log_t:s0     40 Oct 11 16:54 Logs", "lrwxrwxrwx. 1 root root system_u:object_r:httpd_modules_t:s0     29 Sep 15 11:42 modules -> ../../usr/lib64/httpd/modules", "lrwxrwxrwx. 1 root root system_u:object_r:httpd_config_t:s0      10 Sep 15 11:42 run -> /run/httpd", "lrwxrwxrwx. 1 root root system_u:object_r:httpd_config_t:s0      19 Sep 15 11:42 state -> ../../var/lib/httpd", "-rw-r--r--. 1 root root unconfined_u:object_r:httpd_config_t:s0   0 Oct 17 14:00 test"]}
+2020-10-17 20:00:04,028 p=15297 u=ansible n=ansible | TASK [show selinux context on file] *********************************************************************************************************
+2020-10-17 20:00:04,040 p=15297 u=ansible n=ansible | ok: [ansible-managed.local] => {
+    "msg": "result.stdout"
+}
+2020-10-17 20:00:04,041 p=15297 u=ansible n=ansible | META: ran handlers
+2020-10-17 20:00:04,041 p=15297 u=ansible n=ansible | META: ran handlers
+2020-10-17 20:00:04,042 p=15297 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 20:00:04,042 p=15297 u=ansible n=ansible | ansible-managed.local      : ok=4    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-17 20:00:11,048 p=15336 u=ansible n=ansible | Using /home/ansible/ansible/ansible.cfg as config file
+2020-10-17 20:00:11,241 p=15336 u=ansible n=ansible | PLAY [create a file and add selinux context to it] ******************************************************************************************
+2020-10-17 20:00:11,249 p=15336 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 20:00:12,416 p=15336 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 20:00:12,427 p=15336 u=ansible n=ansible | TASK [create file] **************************************************************************************************************************
+2020-10-17 20:00:12,944 p=15336 u=ansible n=ansible | changed: [ansible-managed.local] => {"changed": true, "dest": "/etc/httpd/test", "gid": 0, "group": "root", "mode": "0644", "owner": "root", "secontext": "unconfined_u:object_r:httpd_config_t:s0", "size": 0, "state": "file", "uid": 0}
+2020-10-17 20:00:12,956 p=15336 u=ansible n=ansible | TASK [check context] ************************************************************************************************************************
+2020-10-17 20:00:13,461 p=15336 u=ansible n=ansible | changed: [ansible-managed.local] => {"changed": true, "cmd": "/usr/bin/ls -lZ /etc/httpd", "delta": "0:00:00.004044", "end": "2020-10-17 14:00:13.404856", "rc": 0, "start": "2020-10-17 14:00:13.400812", "stderr": "", "stderr_lines": [], "stdout": "total 0\ndrwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0      37 Oct 11 13:59 conf\ndrwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0       6 Oct 17 07:11 conf.d\ndrwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0     226 Oct 11 13:59 conf.modules.d\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_log_t:s0         19 Sep 15 11:42 logs -> ../../var/log/httpd\ndrwxr-xr-x. 2 root root unconfined_u:object_r:httpd_log_t:s0     40 Oct 11 16:54 Logs\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_modules_t:s0     29 Sep 15 11:42 modules -> ../../usr/lib64/httpd/modules\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_config_t:s0      10 Sep 15 11:42 run -> /run/httpd\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_config_t:s0      19 Sep 15 11:42 state -> ../../var/lib/httpd\n-rw-r--r--. 1 root root unconfined_u:object_r:httpd_config_t:s0   0 Oct 17 14:00 test", "stdout_lines": ["total 0", "drwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0      37 Oct 11 13:59 conf", "drwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0       6 Oct 17 07:11 conf.d", "drwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0     226 Oct 11 13:59 conf.modules.d", "lrwxrwxrwx. 1 root root system_u:object_r:httpd_log_t:s0         19 Sep 15 11:42 logs -> ../../var/log/httpd", "drwxr-xr-x. 2 root root unconfined_u:object_r:httpd_log_t:s0     40 Oct 11 16:54 Logs", "lrwxrwxrwx. 1 root root system_u:object_r:httpd_modules_t:s0     29 Sep 15 11:42 modules -> ../../usr/lib64/httpd/modules", "lrwxrwxrwx. 1 root root system_u:object_r:httpd_config_t:s0      10 Sep 15 11:42 run -> /run/httpd", "lrwxrwxrwx. 1 root root system_u:object_r:httpd_config_t:s0      19 Sep 15 11:42 state -> ../../var/lib/httpd", "-rw-r--r--. 1 root root unconfined_u:object_r:httpd_config_t:s0   0 Oct 17 14:00 test"]}
+2020-10-17 20:00:13,473 p=15336 u=ansible n=ansible | TASK [show selinux context on file] *********************************************************************************************************
+2020-10-17 20:00:13,484 p=15336 u=ansible n=ansible | ok: [ansible-managed.local] => {
+    "msg": "result.stdout"
+}
+2020-10-17 20:00:13,486 p=15336 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 20:00:13,486 p=15336 u=ansible n=ansible | ansible-managed.local      : ok=4    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-17 20:01:18,631 p=15396 u=ansible n=ansible | Using /home/ansible/ansible/ansible.cfg as config file
+2020-10-17 20:01:18,826 p=15396 u=ansible n=ansible | PLAY [create a file and add selinux context to it] ******************************************************************************************
+2020-10-17 20:01:18,833 p=15396 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 20:01:20,268 p=15396 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 20:01:20,278 p=15396 u=ansible n=ansible | TASK [create file] **************************************************************************************************************************
+2020-10-17 20:01:20,797 p=15396 u=ansible n=ansible | changed: [ansible-managed.local] => {"changed": true, "dest": "/etc/httpd/test", "gid": 0, "group": "root", "mode": "0644", "owner": "root", "secontext": "unconfined_u:object_r:httpd_config_t:s0", "size": 0, "state": "file", "uid": 0}
+2020-10-17 20:01:20,809 p=15396 u=ansible n=ansible | TASK [check context] ************************************************************************************************************************
+2020-10-17 20:01:21,314 p=15396 u=ansible n=ansible | changed: [ansible-managed.local] => {"changed": true, "cmd": "/usr/bin/ls -lZ /etc/httpd", "delta": "0:00:00.004284", "end": "2020-10-17 14:01:21.257928", "rc": 0, "start": "2020-10-17 14:01:21.253644", "stderr": "", "stderr_lines": [], "stdout": "total 0\ndrwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0      37 Oct 11 13:59 conf\ndrwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0       6 Oct 17 07:11 conf.d\ndrwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0     226 Oct 11 13:59 conf.modules.d\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_log_t:s0         19 Sep 15 11:42 logs -> ../../var/log/httpd\ndrwxr-xr-x. 2 root root unconfined_u:object_r:httpd_log_t:s0     40 Oct 11 16:54 Logs\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_modules_t:s0     29 Sep 15 11:42 modules -> ../../usr/lib64/httpd/modules\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_config_t:s0      10 Sep 15 11:42 run -> /run/httpd\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_config_t:s0      19 Sep 15 11:42 state -> ../../var/lib/httpd\n-rw-r--r--. 1 root root unconfined_u:object_r:httpd_config_t:s0   0 Oct 17 14:01 test", "stdout_lines": ["total 0", "drwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0      37 Oct 11 13:59 conf", "drwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0       6 Oct 17 07:11 conf.d", "drwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0     226 Oct 11 13:59 conf.modules.d", "lrwxrwxrwx. 1 root root system_u:object_r:httpd_log_t:s0         19 Sep 15 11:42 logs -> ../../var/log/httpd", "drwxr-xr-x. 2 root root unconfined_u:object_r:httpd_log_t:s0     40 Oct 11 16:54 Logs", "lrwxrwxrwx. 1 root root system_u:object_r:httpd_modules_t:s0     29 Sep 15 11:42 modules -> ../../usr/lib64/httpd/modules", "lrwxrwxrwx. 1 root root system_u:object_r:httpd_config_t:s0      10 Sep 15 11:42 run -> /run/httpd", "lrwxrwxrwx. 1 root root system_u:object_r:httpd_config_t:s0      19 Sep 15 11:42 state -> ../../var/lib/httpd", "-rw-r--r--. 1 root root unconfined_u:object_r:httpd_config_t:s0   0 Oct 17 14:01 test"]}
+2020-10-17 20:01:21,325 p=15396 u=ansible n=ansible | TASK [show selinux context on file] *********************************************************************************************************
+2020-10-17 20:01:21,353 p=15396 u=ansible n=ansible | ok: [ansible-managed.local] => {
+    "msg": "total 0\ndrwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0      37 Oct 11 13:59 conf\ndrwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0       6 Oct 17 07:11 conf.d\ndrwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0     226 Oct 11 13:59 conf.modules.d\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_log_t:s0         19 Sep 15 11:42 logs -> ../../var/log/httpd\ndrwxr-xr-x. 2 root root unconfined_u:object_r:httpd_log_t:s0     40 Oct 11 16:54 Logs\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_modules_t:s0     29 Sep 15 11:42 modules -> ../../usr/lib64/httpd/modules\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_config_t:s0      10 Sep 15 11:42 run -> /run/httpd\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_config_t:s0      19 Sep 15 11:42 state -> ../../var/lib/httpd\n-rw-r--r--. 1 root root unconfined_u:object_r:httpd_config_t:s0   0 Oct 17 14:01 test"
+}
+2020-10-17 20:01:21,354 p=15396 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 20:01:21,355 p=15396 u=ansible n=ansible | ansible-managed.local      : ok=4    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-17 20:01:25,371 p=15438 u=ansible n=ansible | PLAY [create a file and add selinux context to it] ******************************************************************************************
+2020-10-17 20:01:25,379 p=15438 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 20:01:26,533 p=15438 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 20:01:26,544 p=15438 u=ansible n=ansible | TASK [create file] **************************************************************************************************************************
+2020-10-17 20:01:27,061 p=15438 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 20:01:27,072 p=15438 u=ansible n=ansible | TASK [check context] ************************************************************************************************************************
+2020-10-17 20:01:27,576 p=15438 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 20:01:27,587 p=15438 u=ansible n=ansible | TASK [show selinux context on file] *********************************************************************************************************
+2020-10-17 20:01:27,614 p=15438 u=ansible n=ansible | ok: [ansible-managed.local] => {
+    "msg": "total 0\ndrwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0      37 Oct 11 13:59 conf\ndrwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0       6 Oct 17 07:11 conf.d\ndrwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0     226 Oct 11 13:59 conf.modules.d\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_log_t:s0         19 Sep 15 11:42 logs -> ../../var/log/httpd\ndrwxr-xr-x. 2 root root unconfined_u:object_r:httpd_log_t:s0     40 Oct 11 16:54 Logs\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_modules_t:s0     29 Sep 15 11:42 modules -> ../../usr/lib64/httpd/modules\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_config_t:s0      10 Sep 15 11:42 run -> /run/httpd\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_config_t:s0      19 Sep 15 11:42 state -> ../../var/lib/httpd\n-rw-r--r--. 1 root root unconfined_u:object_r:httpd_config_t:s0   0 Oct 17 14:01 test"
+}
+2020-10-17 20:01:27,615 p=15438 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 20:01:27,615 p=15438 u=ansible n=ansible | ansible-managed.local      : ok=4    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-17 20:04:41,089 p=15535 u=ansible n=ansible | PLAY [create a file and add selinux context to it] ******************************************************************************************
+2020-10-17 20:04:41,096 p=15535 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 20:04:42,514 p=15535 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 20:04:42,524 p=15535 u=ansible n=ansible | TASK [create file] **************************************************************************************************************************
+2020-10-17 20:04:43,041 p=15535 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 20:04:43,052 p=15535 u=ansible n=ansible | TASK [check context] ************************************************************************************************************************
+2020-10-17 20:04:43,558 p=15535 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 20:04:43,570 p=15535 u=ansible n=ansible | TASK [show selinux context on file] *********************************************************************************************************
+2020-10-17 20:04:43,596 p=15535 u=ansible n=ansible | ok: [ansible-managed.local] => {
+    "msg": "total 0\ndrwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0      37 Oct 11 13:59 conf\ndrwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0       6 Oct 17 07:11 conf.d\ndrwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0     226 Oct 11 13:59 conf.modules.d\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_log_t:s0         19 Sep 15 11:42 logs -> ../../var/log/httpd\ndrwxr-xr-x. 2 root root unconfined_u:object_r:httpd_log_t:s0     40 Oct 11 16:54 Logs\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_modules_t:s0     29 Sep 15 11:42 modules -> ../../usr/lib64/httpd/modules\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_config_t:s0      10 Sep 15 11:42 run -> /run/httpd\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_config_t:s0      19 Sep 15 11:42 state -> ../../var/lib/httpd\n-rw-r--r--. 1 root root unconfined_u:object_r:httpd_config_t:s0   0 Oct 17 14:04 test"
+}
+2020-10-17 20:04:43,607 p=15535 u=ansible n=ansible | TASK [set selinux context for that file] ****************************************************************************************************
+2020-10-17 20:04:43,633 p=15535 u=ansible n=ansible | fatal: [ansible-managed.local]: FAILED! => {"msg": "The conditional check 'ansible_distrition == \"CentOS\"' failed. The error was: error while evaluating conditional (ansible_distrition == \"CentOS\"): 'ansible_distrition' is undefined\n\nThe error appears to be in '/home/ansible/ansible/selinix.yml': line 18, column 7, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n    - name: set selinux context for that file\n      ^ here\n"}
+2020-10-17 20:04:43,634 p=15535 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 20:04:43,634 p=15535 u=ansible n=ansible | ansible-managed.local      : ok=4    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-17 20:05:04,313 p=15582 u=ansible n=ansible | PLAY [create a file and add selinux context to it] ******************************************************************************************
+2020-10-17 20:05:04,320 p=15582 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 20:05:05,483 p=15582 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 20:05:05,494 p=15582 u=ansible n=ansible | TASK [create file] **************************************************************************************************************************
+2020-10-17 20:05:06,009 p=15582 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 20:05:06,020 p=15582 u=ansible n=ansible | TASK [check context] ************************************************************************************************************************
+2020-10-17 20:05:06,525 p=15582 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 20:05:06,536 p=15582 u=ansible n=ansible | TASK [show selinux context on file] *********************************************************************************************************
+2020-10-17 20:05:06,564 p=15582 u=ansible n=ansible | ok: [ansible-managed.local] => {
+    "msg": "total 0\ndrwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0      37 Oct 11 13:59 conf\ndrwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0       6 Oct 17 07:11 conf.d\ndrwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0     226 Oct 11 13:59 conf.modules.d\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_log_t:s0         19 Sep 15 11:42 logs -> ../../var/log/httpd\ndrwxr-xr-x. 2 root root unconfined_u:object_r:httpd_log_t:s0     40 Oct 11 16:54 Logs\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_modules_t:s0     29 Sep 15 11:42 modules -> ../../usr/lib64/httpd/modules\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_config_t:s0      10 Sep 15 11:42 run -> /run/httpd\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_config_t:s0      19 Sep 15 11:42 state -> ../../var/lib/httpd\n-rw-r--r--. 1 root root unconfined_u:object_r:httpd_config_t:s0   0 Oct 17 14:05 test"
+}
+2020-10-17 20:05:06,575 p=15582 u=ansible n=ansible | TASK [set selinux context for that file] ****************************************************************************************************
+2020-10-17 20:05:10,287 p=15582 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 20:05:10,288 p=15582 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 20:05:10,288 p=15582 u=ansible n=ansible | ansible-managed.local      : ok=5    changed=3    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-17 20:06:51,955 p=15649 u=ansible n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  did not find expected '-' indicator
+
+The error appears to be in '/home/ansible/ansible/selinix.yml': line 27, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+handlers:
+^ here
+
+2020-10-17 20:07:48,318 p=15669 u=ansible n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  did not find expected '-' indicator
+
+The error appears to be in '/home/ansible/ansible/selinix.yml': line 27, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+handlers:
+^ here
+
+2020-10-17 20:08:39,334 p=15685 u=ansible n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  did not find expected '-' indicator
+
+The error appears to be in '/home/ansible/ansible/selinix.yml': line 27, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+handlers:
+^ here
+
+2020-10-17 20:11:51,017 p=15740 u=ansible n=ansible | ERROR! We were unable to read either as JSON nor YAML, these are the errors we got from each:
+JSON: Expecting value: line 1 column 1 (char 0)
+
+Syntax Error while loading YAML.
+  did not find expected '-' indicator
+
+The error appears to be in '/home/ansible/ansible/selinix.yml': line 27, column 1, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+
+handlers:
+^ here
+
+2020-10-17 20:13:01,342 p=15774 u=ansible n=ansible | PLAY [create a file and add selinux context to it] ******************************************************************************************
+2020-10-17 20:13:01,350 p=15774 u=ansible n=ansible | TASK [Gathering Facts] **********************************************************************************************************************
+2020-10-17 20:13:02,826 p=15774 u=ansible n=ansible | ok: [ansible-managed.local]
+2020-10-17 20:13:02,837 p=15774 u=ansible n=ansible | TASK [create file] **************************************************************************************************************************
+2020-10-17 20:13:03,354 p=15774 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 20:13:03,365 p=15774 u=ansible n=ansible | TASK [check context] ************************************************************************************************************************
+2020-10-17 20:13:03,869 p=15774 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 20:13:03,880 p=15774 u=ansible n=ansible | TASK [show selinux context on file] *********************************************************************************************************
+2020-10-17 20:13:03,906 p=15774 u=ansible n=ansible | ok: [ansible-managed.local] => {
+    "msg": "total 0\ndrwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0      37 Oct 11 13:59 conf\ndrwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0       6 Oct 17 07:11 conf.d\ndrwxr-xr-x. 2 root root system_u:object_r:httpd_config_t:s0     226 Oct 11 13:59 conf.modules.d\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_log_t:s0         19 Sep 15 11:42 logs -> ../../var/log/httpd\ndrwxr-xr-x. 2 root root unconfined_u:object_r:httpd_log_t:s0     40 Oct 11 16:54 Logs\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_modules_t:s0     29 Sep 15 11:42 modules -> ../../usr/lib64/httpd/modules\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_config_t:s0      10 Sep 15 11:42 run -> /run/httpd\nlrwxrwxrwx. 1 root root system_u:object_r:httpd_config_t:s0      19 Sep 15 11:42 state -> ../../var/lib/httpd\n-rw-r--r--. 1 root root unconfined_u:object_r:httpd_config_t:s0   0 Oct 17 14:13 test"
+}
+2020-10-17 20:13:03,917 p=15774 u=ansible n=ansible | TASK [set selinux context for that file] ****************************************************************************************************
+2020-10-17 20:13:04,883 p=15774 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 20:13:04,884 p=15774 u=ansible n=ansible | RUNNING HANDLER [restorecon] ****************************************************************************************************************
+2020-10-17 20:13:05,305 p=15774 u=ansible n=ansible | changed: [ansible-managed.local]
+2020-10-17 20:13:05,306 p=15774 u=ansible n=ansible | PLAY RECAP **********************************************************************************************************************************
+2020-10-17 20:13:05,306 p=15774 u=ansible n=ansible | ansible-managed.local      : ok=6    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

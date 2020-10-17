@@ -1,0 +1,76 @@
+---
+- name: add local facts file
+  hosts: all
+  vars:
+    destination: /etc/ansible/facts.d
+  tasks:
+
+    - name: create the fact.d directory
+      file:
+        path: "{{ destination }}"
+        state: directory
+
+    - name: check if facts.d directory exists
+      stat:
+        path: "{{ destination }}"
+      register: sta
+
+    - name: use output stat to check if directory exists
+      assert:
+        that: sta.stat.isdir
+
+    - name: copy over the fact file
+      copy:
+        src: packages.fact
+        dest: "{{ destination }}"
+
+- name: check packages.fact to see if they can be found
+  hosts: all
+  tasks:
+    - name: check packages.fact
+      debug:
+        msg: Answers are {{ ansible_local.packages.packages }}
+    - name: check packages.fact
+      debug:
+        msg: Answers are {{ ansible_local.packages.packages.webserver }}
+
+- name: install and configure apacahe webserver
+  hosts: all
+  tasks:
+    - name: install {{ local_facts.packages.packages.webserver }}
+      dnf:
+        name: "{{ ansible_local.packages.packages.webserver }}"
+        state: present
+    - name: create new html file
+      file:
+        path: /var/www/html/index.html
+        state: touch
+    - name: insert some test in the html file
+      blockinfile:
+        path: /var/www/html/index.html
+        block: |
+          Yay, it works
+      notify: restartweb
+
+    - name: install firewalld
+      dnf:
+        name: "{{ ansible_local.packages.packages.firewall }}"
+    - name: open firewall for http traffic
+      firewalld:
+        service: http
+        permanent: true
+        state: enabled
+        immediate: yes
+
+  handlers:
+    - name: restartweb
+      service:
+        name: "{{ ansible_local.packages.packages.webservice}}"
+        state: restarted
+        enabled: true
+
+
+
+
+
+

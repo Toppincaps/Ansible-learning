@@ -1,0 +1,49 @@
+---
+- name: create a new xfs from scratch + mount
+  hosts: all
+  tasks:
+    - name: create partition
+      parted:
+        state: present
+        device: /dev/sdb
+        number: 1
+        part_start: 1MiB
+        part_end: 4096MiB
+
+
+    - name: create volume group
+      lvg:
+        vg: volume-group
+        pvs: /dev/sdb1
+
+    - name: create LV
+      lvol:
+        lv: logical-volume
+        vg: volume-group
+        size: +100%FREE
+
+    - name: create filesystem
+      filesystem:
+        dev: /dev/volume-group/logical-volume
+        fstype: xfs
+
+    - name: create create new mount point
+      file:
+        path: /mnt/testmounti
+        state: directory
+
+    - name: mount the fs
+      mount:
+        path: /mnt/testmounti
+        src: /dev/volume-group/logical-volume
+        state: mounted
+        fstype: xfs
+
+    - name: update fstab
+      shell: /usr/bin/echo "/dev/volume-group/logical-volume /mnt/testmounti xfs defaults 0 0"
+
+
+
+
+
+

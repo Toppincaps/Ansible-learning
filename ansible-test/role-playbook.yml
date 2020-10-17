@@ -1,0 +1,25 @@
+---
+- name: play the httpd role [from playrole.yml]
+  hosts: all
+  roles:
+    - httpd
+
+  post_tasks:
+    - name: create random file
+      file:
+        path: /tmp/testfile
+        state: touch
+
+- name: is the web file reachable?
+  hosts: localhost
+  become: no
+  tasks:
+    - name: check reachability url
+      uri:
+        url: http://ansible-managed.local
+        return_content: yes
+        status_code: 200
+
+    - name: check reachability port
+      shell: /usr/bin/nc ansible-managed.local 80
+
