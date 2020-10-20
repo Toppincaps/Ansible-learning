@@ -1,0 +1,32 @@
+---
+- name: this playbook call facts
+  hosts: all
+  tasks:
+    - name: check how much memory is free
+      debug:
+        msg: amount of memory free is {{ ansible_memfree_mb }}
+
+    - name: check the OS distribution
+      debug:
+        msg: the OS distribution is {{ ansible_distribution }} and version is {{ ansible_distribution_major_version }}
+
+    - name: check the hostname
+      debug:
+        msg: the hostname is {{ ansible_hostname }}
+
+    - name: check the fqdn
+      debug:
+        msg: the fqdn is {{ ansible_fqdn }}
+
+    - name: check the ipv4 address
+      debug:
+        msg: the ipv4 address is {{ ansible_facts.default_ipv4.address }}
+
+    - name: check system uptime
+      debug:
+        msg: the uptime is {{ ansible_uptime_seconds }}
+
+    - name: check dns
+      debug:
+        msg: the dns server is  {{ ansible_dns }}
+

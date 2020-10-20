@@ -1,0 +1,20 @@
+---
+- name: call more facts...
+  hosts: all
+  tasks:
+    - name: check MAC
+      debug:
+        msg: MAC address is {{ ansible_default_ipv4.macaddress }}
+    - name: check MAC
+      debug:
+        msg: MAC address is {{ ansible_ens18.macaddress }}
+    - name: display node name
+      debug:
+        msg: "{{ ansible_nodename }}"
+    - name: display os family
+      debug:
+        msg: "{{ ansible_os_family }}"
+    - name:
+      debug:
+        msg:
+
