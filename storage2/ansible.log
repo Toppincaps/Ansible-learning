@@ -1,0 +1,781 @@
+2020-10-18 17:13:25,211 p=2086 u=ansible n=ansible | PLAY [delete any partitions on /dev/sdb] ***************************************
+2020-10-18 17:13:25,224 p=2086 u=ansible n=ansible | TASK [Gathering Facts] *********************************************************
+2020-10-18 17:13:26,904 p=2086 u=ansible n=ansible | ok: [ansibe-managed.local]
+2020-10-18 17:13:26,915 p=2086 u=ansible n=ansible | TASK [first unmounting the drive] **********************************************
+2020-10-18 17:13:27,446 p=2086 u=ansible n=ansible | ok: [ansibe-managed.local]
+2020-10-18 17:13:27,447 p=2086 u=ansible n=ansible | PLAY RECAP *********************************************************************
+2020-10-18 17:13:27,448 p=2086 u=ansible n=ansible | ansibe-managed.local       : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-18 17:13:50,132 p=2128 u=ansible n=ansible | ansibe-managed.local | CHANGED | rc=0 >>
+Filesystem                                 Size  Used Avail Use% Mounted on
+devtmpfs                                   1.9G     0  1.9G   0% /dev
+tmpfs                                      1.9G     0  1.9G   0% /dev/shm
+tmpfs                                      1.9G  8.9M  1.9G   1% /run
+tmpfs                                      1.9G     0  1.9G   0% /sys/fs/cgroup
+/dev/mapper/cl-root                         29G  4.6G   24G  16% /
+/dev/mapper/volume--group-logical--volume  4.0G   61M  4.0G   2% /mnt/testmounti
+/dev/sda1                                  976M  192M  717M  22% /boot
+tmpfs                                      378M  4.0K  378M   1% /run/user/1001
+
+2020-10-18 17:14:11,992 p=2147 u=ansible n=ansible | [WARNING]: Consider using the mount module rather than running 'mount'.  If you
+need to use command because mount is insufficient you can add 'warn: false' to
+this command task or set 'command_warnings=False' in ansible.cfg to get rid of
+this message.
+
+2020-10-18 17:14:11,993 p=2147 u=ansible n=ansible | ansibe-managed.local | FAILED | rc=32 >>
+mount: /mnt/testmounti: unknown filesystem type 'LVM2_member'.non-zero return code
+
+2020-10-18 17:14:23,007 p=2174 u=ansible n=ansible | ansibe-managed.local | CHANGED | rc=0 >>
+NAME                              MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda                                 8:0    0   32G  0 disk 
+├─sda1                              8:1    0    1G  0 part /boot
+└─sda2                              8:2    0   31G  0 part 
+  ├─cl-root                       253:0    0 28.5G  0 lvm  /
+  └─cl-swap                       253:1    0  2.5G  0 lvm  [SWAP]
+sdb                                 8:16   0   10G  0 disk 
+└─sdb1                              8:17   0    4G  0 part 
+  └─volume--group-logical--volume 253:2    0    4G  0 lvm  /mnt/testmounti
+sr0                                11:0    1  7.7G  0 rom  
+
+2020-10-18 17:14:32,898 p=2193 u=ansible n=ansible | ansibe-managed.local | CHANGED | rc=0 >>
+Filesystem                                 Size  Used Avail Use% Mounted on
+devtmpfs                                   1.9G     0  1.9G   0% /dev
+tmpfs                                      1.9G     0  1.9G   0% /dev/shm
+tmpfs                                      1.9G  8.9M  1.9G   1% /run
+tmpfs                                      1.9G     0  1.9G   0% /sys/fs/cgroup
+/dev/mapper/cl-root                         29G  4.6G   24G  16% /
+/dev/mapper/volume--group-logical--volume  4.0G   61M  4.0G   2% /mnt/testmounti
+/dev/sda1                                  976M  192M  717M  22% /boot
+tmpfs                                      378M  4.0K  378M   1% /run/user/1001
+
+2020-10-18 17:14:53,627 p=2212 u=ansible n=ansible | PLAY [delete any partitions on /dev/sdb] ***************************************
+2020-10-18 17:14:53,634 p=2212 u=ansible n=ansible | TASK [Gathering Facts] *********************************************************
+2020-10-18 17:14:54,760 p=2212 u=ansible n=ansible | ok: [ansibe-managed.local]
+2020-10-18 17:14:54,770 p=2212 u=ansible n=ansible | TASK [first unmounting the drive] **********************************************
+2020-10-18 17:14:55,277 p=2212 u=ansible n=ansible | ok: [ansibe-managed.local]
+2020-10-18 17:14:55,279 p=2212 u=ansible n=ansible | PLAY RECAP *********************************************************************
+2020-10-18 17:14:55,279 p=2212 u=ansible n=ansible | ansibe-managed.local       : ok=2    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-18 17:15:04,162 p=2240 u=ansible n=ansible | ansibe-managed.local | CHANGED | rc=0 >>
+Filesystem                                 Size  Used Avail Use% Mounted on
+devtmpfs                                   1.9G     0  1.9G   0% /dev
+tmpfs                                      1.9G     0  1.9G   0% /dev/shm
+tmpfs                                      1.9G  8.9M  1.9G   1% /run
+tmpfs                                      1.9G     0  1.9G   0% /sys/fs/cgroup
+/dev/mapper/cl-root                         29G  4.6G   24G  16% /
+/dev/mapper/volume--group-logical--volume  4.0G   61M  4.0G   2% /mnt/testmounti
+/dev/sda1                                  976M  192M  717M  22% /boot
+tmpfs                                      378M  4.0K  378M   1% /run/user/1001
+
+2020-10-18 17:15:25,217 p=2268 u=ansible n=ansible | ansibe-managed.local | CHANGED | rc=0 >>
+Filesystem                                 Size  Used Avail Use% Mounted on
+devtmpfs                                   1.9G     0  1.9G   0% /dev
+tmpfs                                      1.9G     0  1.9G   0% /dev/shm
+tmpfs                                      1.9G  8.9M  1.9G   1% /run
+tmpfs                                      1.9G     0  1.9G   0% /sys/fs/cgroup
+/dev/mapper/cl-root                         29G  4.6G   24G  16% /
+/dev/mapper/volume--group-logical--volume  4.0G   61M  4.0G   2% /mnt/testmounti
+/dev/sda1                                  976M  192M  717M  22% /boot
+tmpfs                                      378M  4.0K  378M   1% /run/user/1001
+
+2020-10-18 17:15:29,171 p=2287 u=ansible n=ansible | PLAY [delete any partitions on /dev/sdb] ***************************************
+2020-10-18 17:15:29,179 p=2287 u=ansible n=ansible | TASK [Gathering Facts] *********************************************************
+2020-10-18 17:15:30,299 p=2287 u=ansible n=ansible | ok: [ansibe-managed.local]
+2020-10-18 17:15:30,310 p=2287 u=ansible n=ansible | TASK [first unmounting the drive] **********************************************
+2020-10-18 17:15:30,845 p=2287 u=ansible n=ansible | changed: [ansibe-managed.local]
+2020-10-18 17:15:30,846 p=2287 u=ansible n=ansible | PLAY RECAP *********************************************************************
+2020-10-18 17:15:30,846 p=2287 u=ansible n=ansible | ansibe-managed.local       : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-18 17:15:34,921 p=2315 u=ansible n=ansible | ansibe-managed.local | CHANGED | rc=0 >>
+Filesystem           Size  Used Avail Use% Mounted on
+devtmpfs             1.9G     0  1.9G   0% /dev
+tmpfs                1.9G     0  1.9G   0% /dev/shm
+tmpfs                1.9G  8.9M  1.9G   1% /run
+tmpfs                1.9G     0  1.9G   0% /sys/fs/cgroup
+/dev/mapper/cl-root   29G  4.6G   24G  16% /
+/dev/sda1            976M  192M  717M  22% /boot
+tmpfs                378M  4.0K  378M   1% /run/user/1001
+
+2020-10-18 17:16:50,888 p=2345 u=ansible n=ansible | ERROR! the playbook: lvol could not be found
+2020-10-18 17:18:27,172 p=2372 u=ansible n=ansible | ERROR! Unexpected Exception, this is probably a bug: [Errno 32] Broken pipe
+2020-10-18 17:18:27,172 p=2372 u=ansible n=ansible | to see the full traceback, use -vvv
+2020-10-18 17:18:27,176 p=2372 u=ansible n=ansible | the full traceback was:
+
+Traceback (most recent call last):
+  File "/usr/bin/ansible-doc", line 123, in <module>
+    exit_code = cli.run()
+  File "/usr/lib/python3.6/site-packages/ansible/cli/doc.py", line 173, in run
+    DocCLI.pager("\n".join(text))
+  File "/usr/lib/python3.6/site-packages/ansible/cli/__init__.py", line 402, in pager
+    display.display(text, screen_only=True)
+  File "/usr/lib/python3.6/site-packages/ansible/utils/display.py", line 189, in display
+    fileobj.write(msg2)
+BrokenPipeError: [Errno 32] Broken pipe
+
+2020-10-18 17:22:55,993 p=2445 u=ansible n=ansible | PLAY [delete any partitions on /dev/sdb] ***************************************
+2020-10-18 17:22:56,001 p=2445 u=ansible n=ansible | TASK [Gathering Facts] *********************************************************
+2020-10-18 17:22:57,438 p=2445 u=ansible n=ansible | ok: [ansibe-managed.local]
+2020-10-18 17:22:57,449 p=2445 u=ansible n=ansible | TASK [first unmounting the drive] **********************************************
+2020-10-18 17:22:57,965 p=2445 u=ansible n=ansible | ok: [ansibe-managed.local]
+2020-10-18 17:22:57,976 p=2445 u=ansible n=ansible | TASK [second remove the logical volume] ****************************************
+2020-10-18 17:22:58,541 p=2445 u=ansible n=ansible | fatal: [ansibe-managed.local]: FAILED! => {"changed": false, "msg": "Sorry, no removal of logical volume logical-volume without force=yes."}
+2020-10-18 17:22:58,542 p=2445 u=ansible n=ansible | PLAY RECAP *********************************************************************
+2020-10-18 17:22:58,542 p=2445 u=ansible n=ansible | ansibe-managed.local       : ok=2    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-18 17:23:24,307 p=2497 u=ansible n=ansible | PLAY [delete any partitions on /dev/sdb] ***************************************
+2020-10-18 17:23:24,315 p=2497 u=ansible n=ansible | TASK [Gathering Facts] *********************************************************
+2020-10-18 17:23:25,446 p=2497 u=ansible n=ansible | ok: [ansibe-managed.local]
+2020-10-18 17:23:25,457 p=2497 u=ansible n=ansible | TASK [first unmounting the drive] **********************************************
+2020-10-18 17:23:25,970 p=2497 u=ansible n=ansible | ok: [ansibe-managed.local]
+2020-10-18 17:23:25,981 p=2497 u=ansible n=ansible | TASK [second remove the logical volume] ****************************************
+2020-10-18 17:23:26,591 p=2497 u=ansible n=ansible | changed: [ansibe-managed.local]
+2020-10-18 17:23:26,602 p=2497 u=ansible n=ansible | TASK [third remove the volume group] *******************************************
+2020-10-18 17:23:27,165 p=2497 u=ansible n=ansible | changed: [ansibe-managed.local]
+2020-10-18 17:23:27,176 p=2497 u=ansible n=ansible | TASK [fourth remove any partitions] ********************************************
+2020-10-18 17:23:27,690 p=2497 u=ansible n=ansible | fatal: [ansibe-managed.local]: FAILED! => {"changed": false, "msg": "state is absent but all of the following are missing: number"}
+2020-10-18 17:23:27,691 p=2497 u=ansible n=ansible | PLAY RECAP *********************************************************************
+2020-10-18 17:23:27,691 p=2497 u=ansible n=ansible | ansibe-managed.local       : ok=4    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-18 17:23:51,863 p=2556 u=ansible n=ansible | PLAY [delete any partitions on /dev/sdb] ***************************************
+2020-10-18 17:23:51,870 p=2556 u=ansible n=ansible | TASK [Gathering Facts] *********************************************************
+2020-10-18 17:23:52,999 p=2556 u=ansible n=ansible | ok: [ansibe-managed.local]
+2020-10-18 17:23:53,009 p=2556 u=ansible n=ansible | TASK [first unmounting the drive] **********************************************
+2020-10-18 17:23:53,523 p=2556 u=ansible n=ansible | ok: [ansibe-managed.local]
+2020-10-18 17:23:53,533 p=2556 u=ansible n=ansible | TASK [second remove the logical volume] ****************************************
+2020-10-18 17:23:54,059 p=2556 u=ansible n=ansible | ok: [ansibe-managed.local]
+2020-10-18 17:23:54,070 p=2556 u=ansible n=ansible | TASK [third remove the volume group] *******************************************
+2020-10-18 17:23:54,595 p=2556 u=ansible n=ansible | ok: [ansibe-managed.local]
+2020-10-18 17:23:54,605 p=2556 u=ansible n=ansible | TASK [fourth remove any partitions] ********************************************
+2020-10-18 17:23:55,190 p=2556 u=ansible n=ansible | changed: [ansibe-managed.local]
+2020-10-18 17:23:55,201 p=2556 u=ansible n=ansible | TASK [verify that the playbook worked] *****************************************
+2020-10-18 17:23:55,730 p=2556 u=ansible n=ansible | changed: [ansibe-managed.local]
+2020-10-18 17:23:55,741 p=2556 u=ansible n=ansible | TASK [output result] ***********************************************************
+2020-10-18 17:23:55,767 p=2556 u=ansible n=ansible | fatal: [ansibe-managed.local]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'rc' is undefined\n\nThe error appears to be in '/home/ansible/project/playbook.yml': line 33, column 7, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n    - name: output result\n      ^ here\n"}
+2020-10-18 17:23:55,768 p=2556 u=ansible n=ansible | PLAY RECAP *********************************************************************
+2020-10-18 17:23:55,768 p=2556 u=ansible n=ansible | ansibe-managed.local       : ok=6    changed=2    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-18 17:24:15,214 p=2630 u=ansible n=ansible | ansible-playbook 2.9.14
+  config file = /home/ansible/project/ansible.cfg
+  configured module search path = ['/home/ansible/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.6/site-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.6.8 (default, Apr 16 2020, 01:36:27) [GCC 8.3.1 20191121 (Red Hat 8.3.1-5)]
+2020-10-18 17:24:15,214 p=2630 u=ansible n=ansible | Using /home/ansible/project/ansible.cfg as config file
+2020-10-18 17:24:15,412 p=2630 u=ansible n=ansible | PLAYBOOK: playbook.yml *********************************************************
+2020-10-18 17:24:15,412 p=2630 u=ansible n=ansible | 1 plays in playbook.yml
+2020-10-18 17:24:15,414 p=2630 u=ansible n=ansible | PLAY [delete any partitions on /dev/sdb] ***************************************
+2020-10-18 17:24:15,422 p=2630 u=ansible n=ansible | TASK [Gathering Facts] *********************************************************
+2020-10-18 17:24:16,539 p=2630 u=ansible n=ansible | ok: [ansibe-managed.local]
+2020-10-18 17:24:16,539 p=2630 u=ansible n=ansible | META: ran handlers
+2020-10-18 17:24:16,549 p=2630 u=ansible n=ansible | TASK [first unmounting the drive] **********************************************
+2020-10-18 17:24:17,066 p=2630 u=ansible n=ansible | ok: [ansibe-managed.local] => {"changed": false, "dump": "0", "fstab": "/etc/fstab", "name": "/mnt/testmounti", "opts": "defaults", "passno": "0"}
+2020-10-18 17:24:17,076 p=2630 u=ansible n=ansible | TASK [second remove the logical volume] ****************************************
+2020-10-18 17:24:17,607 p=2630 u=ansible n=ansible | ok: [ansibe-managed.local] => {"changed": false, "stdout": "Volume group volume-group does not exist.", "stdout_lines": ["Volume group volume-group does not exist."]}
+2020-10-18 17:24:17,618 p=2630 u=ansible n=ansible | TASK [third remove the volume group] *******************************************
+2020-10-18 17:24:18,141 p=2630 u=ansible n=ansible | ok: [ansibe-managed.local] => {"changed": false}
+2020-10-18 17:24:18,152 p=2630 u=ansible n=ansible | TASK [fourth remove any partitions] ********************************************
+2020-10-18 17:24:18,700 p=2630 u=ansible n=ansible | ok: [ansibe-managed.local] => {"changed": false, "disk": {"dev": "/dev/sdb", "logical_block": 512, "model": "QEMU QEMU HARDDISK", "physical_block": 512, "size": 10485760.0, "table": "msdos", "unit": "kib"}, "partitions": [], "script": ""}
+2020-10-18 17:24:18,710 p=2630 u=ansible n=ansible | TASK [verify that the playbook worked] *****************************************
+2020-10-18 17:24:19,232 p=2630 u=ansible n=ansible | changed: [ansibe-managed.local] => {"changed": true, "cmd": "lsblk ; fdisk -l /dev/sdb", "delta": "0:00:00.006718", "end": "2020-10-18 11:24:19.176186", "rc": 0, "start": "2020-10-18 11:24:19.169468", "stderr": "", "stderr_lines": [], "stdout": "NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT\nsda           8:0    0   32G  0 disk \n├─sda1        8:1    0    1G  0 part /boot\n└─sda2        8:2    0   31G  0 part \n  ├─cl-root 253:0    0 28.5G  0 lvm  /\n  └─cl-swap 253:1    0  2.5G  0 lvm  [SWAP]\nsdb           8:16   0   10G  0 disk \nsr0          11:0    1  7.7G  0 rom  \nDisk /dev/sdb: 10 GiB, 10737418240 bytes, 20971520 sectors\nUnits: sectors of 1 * 512 = 512 bytes\nSector size (logical/physical): 512 bytes / 512 bytes\nI/O size (minimum/optimal): 512 bytes / 512 bytes\nDisklabel type: dos\nDisk identifier: 0xde372872", "stdout_lines": ["NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT", "sda           8:0    0   32G  0 disk ", "├─sda1        8:1    0    1G  0 part /boot", "└─sda2        8:2    0   31G  0 part ", "  ├─cl-root 253:0    0 28.5G  0 lvm  /", "  └─cl-swap 253:1    0  2.5G  0 lvm  [SWAP]", "sdb           8:16   0   10G  0 disk ", "sr0          11:0    1  7.7G  0 rom  ", "Disk /dev/sdb: 10 GiB, 10737418240 bytes, 20971520 sectors", "Units: sectors of 1 * 512 = 512 bytes", "Sector size (logical/physical): 512 bytes / 512 bytes", "I/O size (minimum/optimal): 512 bytes / 512 bytes", "Disklabel type: dos", "Disk identifier: 0xde372872"]}
+2020-10-18 17:24:19,243 p=2630 u=ansible n=ansible | TASK [output result] ***********************************************************
+2020-10-18 17:24:19,268 p=2630 u=ansible n=ansible | fatal: [ansibe-managed.local]: FAILED! => {"msg": "The task includes an option with an undefined variable. The error was: 'rc' is undefined\n\nThe error appears to be in '/home/ansible/project/playbook.yml': line 33, column 7, but may\nbe elsewhere in the file depending on the exact syntax problem.\n\nThe offending line appears to be:\n\n\n    - name: output result\n      ^ here\n"}
+2020-10-18 17:24:19,269 p=2630 u=ansible n=ansible | PLAY RECAP *********************************************************************
+2020-10-18 17:24:19,269 p=2630 u=ansible n=ansible | ansibe-managed.local       : ok=6    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-18 17:25:57,095 p=2705 u=ansible n=ansible | ansible-playbook 2.9.14
+  config file = /home/ansible/project/ansible.cfg
+  configured module search path = ['/home/ansible/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.6/site-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.6.8 (default, Apr 16 2020, 01:36:27) [GCC 8.3.1 20191121 (Red Hat 8.3.1-5)]
+2020-10-18 17:25:57,096 p=2705 u=ansible n=ansible | Using /home/ansible/project/ansible.cfg as config file
+2020-10-18 17:25:57,294 p=2705 u=ansible n=ansible | PLAYBOOK: playbook.yml ****************************************************************************
+2020-10-18 17:25:57,294 p=2705 u=ansible n=ansible | 1 plays in playbook.yml
+2020-10-18 17:25:57,296 p=2705 u=ansible n=ansible | PLAY [delete any partitions on /dev/sdb] **********************************************************
+2020-10-18 17:25:57,304 p=2705 u=ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-10-18 17:25:58,698 p=2705 u=ansible n=ansible | ok: [ansibe-managed.local]
+2020-10-18 17:25:58,699 p=2705 u=ansible n=ansible | META: ran handlers
+2020-10-18 17:25:58,708 p=2705 u=ansible n=ansible | TASK [first unmounting the drive] *****************************************************************
+2020-10-18 17:25:59,228 p=2705 u=ansible n=ansible | ok: [ansibe-managed.local] => {"changed": false, "dump": "0", "fstab": "/etc/fstab", "name": "/mnt/testmounti", "opts": "defaults", "passno": "0"}
+2020-10-18 17:25:59,239 p=2705 u=ansible n=ansible | TASK [second remove the logical volume] ***********************************************************
+2020-10-18 17:25:59,770 p=2705 u=ansible n=ansible | ok: [ansibe-managed.local] => {"changed": false, "stdout": "Volume group volume-group does not exist.", "stdout_lines": ["Volume group volume-group does not exist."]}
+2020-10-18 17:25:59,781 p=2705 u=ansible n=ansible | TASK [third remove the volume group] **************************************************************
+2020-10-18 17:26:00,320 p=2705 u=ansible n=ansible | ok: [ansibe-managed.local] => {"changed": false}
+2020-10-18 17:26:00,331 p=2705 u=ansible n=ansible | TASK [fourth remove any partitions] ***************************************************************
+2020-10-18 17:26:00,907 p=2705 u=ansible n=ansible | ok: [ansibe-managed.local] => {"changed": false, "disk": {"dev": "/dev/sdb", "logical_block": 512, "model": "QEMU QEMU HARDDISK", "physical_block": 512, "size": 10485760.0, "table": "msdos", "unit": "kib"}, "partitions": [], "script": ""}
+2020-10-18 17:26:00,918 p=2705 u=ansible n=ansible | TASK [verify that the playbook worked] ************************************************************
+2020-10-18 17:26:01,440 p=2705 u=ansible n=ansible | changed: [ansibe-managed.local] => {"changed": true, "cmd": "lsblk ; fdisk -l /dev/sdb", "delta": "0:00:00.006967", "end": "2020-10-18 11:26:01.385445", "rc": 0, "start": "2020-10-18 11:26:01.378478", "stderr": "", "stderr_lines": [], "stdout": "NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT\nsda           8:0    0   32G  0 disk \n├─sda1        8:1    0    1G  0 part /boot\n└─sda2        8:2    0   31G  0 part \n  ├─cl-root 253:0    0 28.5G  0 lvm  /\n  └─cl-swap 253:1    0  2.5G  0 lvm  [SWAP]\nsdb           8:16   0   10G  0 disk \nsr0          11:0    1  7.7G  0 rom  \nDisk /dev/sdb: 10 GiB, 10737418240 bytes, 20971520 sectors\nUnits: sectors of 1 * 512 = 512 bytes\nSector size (logical/physical): 512 bytes / 512 bytes\nI/O size (minimum/optimal): 512 bytes / 512 bytes\nDisklabel type: dos\nDisk identifier: 0xde372872", "stdout_lines": ["NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT", "sda           8:0    0   32G  0 disk ", "├─sda1        8:1    0    1G  0 part /boot", "└─sda2        8:2    0   31G  0 part ", "  ├─cl-root 253:0    0 28.5G  0 lvm  /", "  └─cl-swap 253:1    0  2.5G  0 lvm  [SWAP]", "sdb           8:16   0   10G  0 disk ", "sr0          11:0    1  7.7G  0 rom  ", "Disk /dev/sdb: 10 GiB, 10737418240 bytes, 20971520 sectors", "Units: sectors of 1 * 512 = 512 bytes", "Sector size (logical/physical): 512 bytes / 512 bytes", "I/O size (minimum/optimal): 512 bytes / 512 bytes", "Disklabel type: dos", "Disk identifier: 0xde372872"]}
+2020-10-18 17:26:01,451 p=2705 u=ansible n=ansible | TASK [output result] ******************************************************************************
+2020-10-18 17:26:01,479 p=2705 u=ansible n=ansible | ok: [ansibe-managed.local] => {
+    "msg": "the results are NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT\nsda           8:0    0   32G  0 disk \n├─sda1        8:1    0    1G  0 part /boot\n└─sda2        8:2    0   31G  0 part \n  ├─cl-root 253:0    0 28.5G  0 lvm  /\n  └─cl-swap 253:1    0  2.5G  0 lvm  [SWAP]\nsdb           8:16   0   10G  0 disk \nsr0          11:0    1  7.7G  0 rom  \nDisk /dev/sdb: 10 GiB, 10737418240 bytes, 20971520 sectors\nUnits: sectors of 1 * 512 = 512 bytes\nSector size (logical/physical): 512 bytes / 512 bytes\nI/O size (minimum/optimal): 512 bytes / 512 bytes\nDisklabel type: dos\nDisk identifier: 0xde372872"
+}
+2020-10-18 17:26:01,479 p=2705 u=ansible n=ansible | META: ran handlers
+2020-10-18 17:26:01,479 p=2705 u=ansible n=ansible | META: ran handlers
+2020-10-18 17:26:01,480 p=2705 u=ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-10-18 17:26:01,480 p=2705 u=ansible n=ansible | ansibe-managed.local       : ok=7    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-18 17:27:47,055 p=2810 u=ansible n=ansible | PLAY [delete any partitions on /dev/sdb] ***************************************
+2020-10-18 17:27:47,063 p=2810 u=ansible n=ansible | TASK [Gathering Facts] *********************************************************
+2020-10-18 17:27:48,442 p=2810 u=ansible n=ansible | ok: [ansibe-managed.local]
+2020-10-18 17:27:48,452 p=2810 u=ansible n=ansible | TASK [first unmounting the drive] **********************************************
+2020-10-18 17:27:48,972 p=2810 u=ansible n=ansible | ok: [ansibe-managed.local]
+2020-10-18 17:27:48,982 p=2810 u=ansible n=ansible | TASK [second remove the logical volume] ****************************************
+2020-10-18 17:27:49,518 p=2810 u=ansible n=ansible | ok: [ansibe-managed.local]
+2020-10-18 17:27:49,529 p=2810 u=ansible n=ansible | TASK [third remove the volume group] *******************************************
+2020-10-18 17:27:50,053 p=2810 u=ansible n=ansible | ok: [ansibe-managed.local]
+2020-10-18 17:27:50,063 p=2810 u=ansible n=ansible | TASK [fourth remove any partitions] ********************************************
+2020-10-18 17:27:51,622 p=2810 u=ansible n=ansible | ok: [ansibe-managed.local]
+2020-10-18 17:27:51,633 p=2810 u=ansible n=ansible | TASK [verify that the playbook worked] *****************************************
+2020-10-18 17:27:52,159 p=2810 u=ansible n=ansible | changed: [ansibe-managed.local]
+2020-10-18 17:27:52,170 p=2810 u=ansible n=ansible | TASK [output result] ***********************************************************
+2020-10-18 17:27:52,197 p=2810 u=ansible n=ansible | ok: [ansibe-managed.local] => {}
+
+MSG:
+
+the results are NAME        MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda           8:0    0   32G  0 disk 
+├─sda1        8:1    0    1G  0 part /boot
+└─sda2        8:2    0   31G  0 part 
+  ├─cl-root 253:0    0 28.5G  0 lvm  /
+  └─cl-swap 253:1    0  2.5G  0 lvm  [SWAP]
+sdb           8:16   0   10G  0 disk 
+sr0          11:0    1  7.7G  0 rom  
+Disk /dev/sdb: 10 GiB, 10737418240 bytes, 20971520 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0xde372872
+
+2020-10-18 17:27:52,199 p=2810 u=ansible n=ansible | PLAY RECAP *********************************************************************
+2020-10-18 17:27:52,199 p=2810 u=ansible n=ansible | ansibe-managed.local       : ok=7    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+2020-10-18 17:46:25,972 p=3242 u=ansible n=ansible | ansible-playbook 2.9.14
+  config file = /home/ansible/project/ansible.cfg
+  configured module search path = ['/home/ansible/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.6/site-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.6.8 (default, Apr 16 2020, 01:36:27) [GCC 8.3.1 20191121 (Red Hat 8.3.1-5)]
+2020-10-18 17:46:25,972 p=3242 u=ansible n=ansible | Using /home/ansible/project/ansible.cfg as config file
+2020-10-18 17:46:26,176 p=3242 u=ansible n=ansible | PLAYBOOK: create.yml ******************************************************************************
+2020-10-18 17:46:26,176 p=3242 u=ansible n=ansible | 1 plays in create.yml
+2020-10-18 17:46:26,178 p=3242 u=ansible n=ansible | PLAY [create partition + lv + filesystem + mount point + mount] ***********************************
+2020-10-18 17:46:26,186 p=3242 u=ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-10-18 17:46:27,636 p=3242 u=ansible n=ansible | ok: [ansibe-managed.local]
+2020-10-18 17:46:27,637 p=3242 u=ansible n=ansible | META: ran handlers
+2020-10-18 17:46:27,646 p=3242 u=ansible n=ansible | TASK [create partition] ***************************************************************************
+2020-10-18 17:46:28,211 p=3242 u=ansible n=ansible | changed: [ansibe-managed.local] => {
+    "changed": true,
+    "disk": {
+        "dev": "/dev/sdb",
+        "logical_block": 512,
+        "model": "QEMU QEMU HARDDISK",
+        "physical_block": 512,
+        "size": 10485760.0,
+        "table": "msdos",
+        "unit": "kib"
+    },
+    "partitions": [
+        {
+            "begin": 1024.0,
+            "end": 8388608.0,
+            "flags": [],
+            "fstype": "",
+            "name": "",
+            "num": 1,
+            "size": 8387584.0,
+            "unit": "kib"
+        }
+    ],
+    "script": "unit KiB mkpart primary 1MiB 8192MiB"
+}
+2020-10-18 17:46:28,221 p=3242 u=ansible n=ansible | TASK [create volume group] ************************************************************************
+2020-10-18 17:46:28,882 p=3242 u=ansible n=ansible | changed: [ansibe-managed.local] => {
+    "changed": true
+}
+2020-10-18 17:46:28,892 p=3242 u=ansible n=ansible | TASK [create logical volume] **********************************************************************
+2020-10-18 17:46:29,552 p=3242 u=ansible n=ansible | changed: [ansibe-managed.local] => {
+    "changed": true
+}
+2020-10-18 17:46:29,562 p=3242 u=ansible n=ansible | TASK [create filesystem] **************************************************************************
+2020-10-18 17:46:30,227 p=3242 u=ansible n=ansible | changed: [ansibe-managed.local] => {
+    "changed": true
+}
+2020-10-18 17:46:30,237 p=3242 u=ansible n=ansible | TASK [create mount point] *************************************************************************
+2020-10-18 17:46:30,777 p=3242 u=ansible n=ansible | changed: [ansibe-managed.local] => {
+    "changed": true,
+    "dest": "/mnt/mounti",
+    "gid": 0,
+    "group": "root",
+    "mode": "0644",
+    "owner": "root",
+    "secontext": "unconfined_u:object_r:mnt_t:s0",
+    "size": 0,
+    "state": "file",
+    "uid": 0
+}
+2020-10-18 17:46:30,788 p=3242 u=ansible n=ansible | TASK [mount the logical volume] *******************************************************************
+2020-10-18 17:46:31,308 p=3242 u=ansible n=ansible | fatal: [ansibe-managed.local]: FAILED! => {
+    "changed": false
+}
+
+MSG:
+
+Unsupported parameters for (mount) module: dest Supported parameters include: backup, boot, dump, fstab, fstype, opts, passno, path, src, state
+
+2020-10-18 17:46:31,310 p=3242 u=ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-10-18 17:46:31,310 p=3242 u=ansible n=ansible | ansibe-managed.local       : ok=6    changed=5    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-18 17:47:39,134 p=3339 u=ansible n=ansible | ansible-playbook 2.9.14
+  config file = /home/ansible/project/ansible.cfg
+  configured module search path = ['/home/ansible/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.6/site-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.6.8 (default, Apr 16 2020, 01:36:27) [GCC 8.3.1 20191121 (Red Hat 8.3.1-5)]
+2020-10-18 17:47:39,135 p=3339 u=ansible n=ansible | Using /home/ansible/project/ansible.cfg as config file
+2020-10-18 17:47:39,333 p=3339 u=ansible n=ansible | PLAYBOOK: create.yml ******************************************************************************
+2020-10-18 17:47:39,333 p=3339 u=ansible n=ansible | 1 plays in create.yml
+2020-10-18 17:47:39,335 p=3339 u=ansible n=ansible | PLAY [create partition + lv + filesystem + mount point + mount] ***********************************
+2020-10-18 17:47:39,342 p=3339 u=ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-10-18 17:47:40,741 p=3339 u=ansible n=ansible | ok: [ansibe-managed.local]
+2020-10-18 17:47:40,742 p=3339 u=ansible n=ansible | META: ran handlers
+2020-10-18 17:47:40,752 p=3339 u=ansible n=ansible | TASK [create partition] ***************************************************************************
+2020-10-18 17:47:41,287 p=3339 u=ansible n=ansible | ok: [ansibe-managed.local] => {
+    "changed": false,
+    "disk": {
+        "dev": "/dev/sdb",
+        "logical_block": 512,
+        "model": "QEMU QEMU HARDDISK",
+        "physical_block": 512,
+        "size": 10485760.0,
+        "table": "msdos",
+        "unit": "kib"
+    },
+    "partitions": [
+        {
+            "begin": 1024.0,
+            "end": 8388608.0,
+            "flags": [],
+            "fstype": "",
+            "name": "",
+            "num": 1,
+            "size": 8387584.0,
+            "unit": "kib"
+        }
+    ],
+    "script": ""
+}
+2020-10-18 17:47:41,297 p=3339 u=ansible n=ansible | TASK [create volume group] ************************************************************************
+2020-10-18 17:47:41,864 p=3339 u=ansible n=ansible | ok: [ansibe-managed.local] => {
+    "changed": false
+}
+2020-10-18 17:47:41,874 p=3339 u=ansible n=ansible | TASK [create logical volume] **********************************************************************
+2020-10-18 17:47:42,504 p=3339 u=ansible n=ansible | ok: [ansibe-managed.local] => {
+    "changed": false,
+    "lv": "logical-volume",
+    "size": 8188.0,
+    "vg": "test-group"
+}
+2020-10-18 17:47:42,515 p=3339 u=ansible n=ansible | TASK [create filesystem] **************************************************************************
+2020-10-18 17:47:43,067 p=3339 u=ansible n=ansible | ok: [ansibe-managed.local] => {
+    "changed": false
+}
+2020-10-18 17:47:43,078 p=3339 u=ansible n=ansible | TASK [create mount point] *************************************************************************
+2020-10-18 17:47:43,611 p=3339 u=ansible n=ansible | changed: [ansibe-managed.local] => {
+    "changed": true,
+    "dest": "/mnt/mounti",
+    "gid": 0,
+    "group": "root",
+    "mode": "0644",
+    "owner": "root",
+    "secontext": "unconfined_u:object_r:mnt_t:s0",
+    "size": 0,
+    "state": "file",
+    "uid": 0
+}
+2020-10-18 17:47:43,622 p=3339 u=ansible n=ansible | TASK [mount the logical volume] *******************************************************************
+2020-10-18 17:47:44,142 p=3339 u=ansible n=ansible | fatal: [ansibe-managed.local]: FAILED! => {
+    "changed": false
+}
+
+MSG:
+
+state is mounted but all of the following are missing: fstype
+
+2020-10-18 17:47:44,143 p=3339 u=ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-10-18 17:47:44,144 p=3339 u=ansible n=ansible | ansibe-managed.local       : ok=6    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-18 17:48:09,447 p=3416 u=ansible n=ansible | ansible-playbook 2.9.14
+  config file = /home/ansible/project/ansible.cfg
+  configured module search path = ['/home/ansible/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.6/site-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.6.8 (default, Apr 16 2020, 01:36:27) [GCC 8.3.1 20191121 (Red Hat 8.3.1-5)]
+2020-10-18 17:48:09,447 p=3416 u=ansible n=ansible | Using /home/ansible/project/ansible.cfg as config file
+2020-10-18 17:48:09,647 p=3416 u=ansible n=ansible | PLAYBOOK: create.yml ******************************************************************************
+2020-10-18 17:48:09,647 p=3416 u=ansible n=ansible | 1 plays in create.yml
+2020-10-18 17:48:09,649 p=3416 u=ansible n=ansible | PLAY [create partition + lv + filesystem + mount point + mount] ***********************************
+2020-10-18 17:48:09,657 p=3416 u=ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-10-18 17:48:10,797 p=3416 u=ansible n=ansible | ok: [ansibe-managed.local]
+2020-10-18 17:48:10,797 p=3416 u=ansible n=ansible | META: ran handlers
+2020-10-18 17:48:10,808 p=3416 u=ansible n=ansible | TASK [create partition] ***************************************************************************
+2020-10-18 17:48:11,350 p=3416 u=ansible n=ansible | ok: [ansibe-managed.local] => {
+    "changed": false,
+    "disk": {
+        "dev": "/dev/sdb",
+        "logical_block": 512,
+        "model": "QEMU QEMU HARDDISK",
+        "physical_block": 512,
+        "size": 10485760.0,
+        "table": "msdos",
+        "unit": "kib"
+    },
+    "partitions": [
+        {
+            "begin": 1024.0,
+            "end": 8388608.0,
+            "flags": [],
+            "fstype": "",
+            "name": "",
+            "num": 1,
+            "size": 8387584.0,
+            "unit": "kib"
+        }
+    ],
+    "script": ""
+}
+2020-10-18 17:48:11,361 p=3416 u=ansible n=ansible | TASK [create volume group] ************************************************************************
+2020-10-18 17:48:11,924 p=3416 u=ansible n=ansible | ok: [ansibe-managed.local] => {
+    "changed": false
+}
+2020-10-18 17:48:11,935 p=3416 u=ansible n=ansible | TASK [create logical volume] **********************************************************************
+2020-10-18 17:48:12,538 p=3416 u=ansible n=ansible | ok: [ansibe-managed.local] => {
+    "changed": false,
+    "lv": "logical-volume",
+    "size": 8188.0,
+    "vg": "test-group"
+}
+2020-10-18 17:48:12,549 p=3416 u=ansible n=ansible | TASK [create filesystem] **************************************************************************
+2020-10-18 17:48:13,083 p=3416 u=ansible n=ansible | ok: [ansibe-managed.local] => {
+    "changed": false
+}
+2020-10-18 17:48:13,094 p=3416 u=ansible n=ansible | TASK [create mount point] *************************************************************************
+2020-10-18 17:48:13,631 p=3416 u=ansible n=ansible | changed: [ansibe-managed.local] => {
+    "changed": true,
+    "dest": "/mnt/mounti",
+    "gid": 0,
+    "group": "root",
+    "mode": "0644",
+    "owner": "root",
+    "secontext": "unconfined_u:object_r:mnt_t:s0",
+    "size": 0,
+    "state": "file",
+    "uid": 0
+}
+2020-10-18 17:48:13,642 p=3416 u=ansible n=ansible | TASK [mount the logical volume] *******************************************************************
+2020-10-18 17:48:14,201 p=3416 u=ansible n=ansible | fatal: [ansibe-managed.local]: FAILED! => {
+    "changed": false
+}
+
+MSG:
+
+Error mounting /mnt/mounti: mount: /mnt/mounti: mount point is not a directory.
+
+
+2020-10-18 17:48:14,202 p=3416 u=ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-10-18 17:48:14,202 p=3416 u=ansible n=ansible | ansibe-managed.local       : ok=6    changed=1    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-18 17:49:13,034 p=3498 u=ansible n=ansible | ansible-playbook 2.9.14
+  config file = /home/ansible/project/ansible.cfg
+  configured module search path = ['/home/ansible/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.6/site-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.6.8 (default, Apr 16 2020, 01:36:27) [GCC 8.3.1 20191121 (Red Hat 8.3.1-5)]
+2020-10-18 17:49:13,034 p=3498 u=ansible n=ansible | Using /home/ansible/project/ansible.cfg as config file
+2020-10-18 17:49:13,233 p=3498 u=ansible n=ansible | PLAYBOOK: create.yml ******************************************************************************
+2020-10-18 17:49:13,233 p=3498 u=ansible n=ansible | 1 plays in create.yml
+2020-10-18 17:49:13,235 p=3498 u=ansible n=ansible | PLAY [create partition + lv + filesystem + mount point + mount] ***********************************
+2020-10-18 17:49:13,243 p=3498 u=ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-10-18 17:49:14,386 p=3498 u=ansible n=ansible | ok: [ansibe-managed.local]
+2020-10-18 17:49:14,386 p=3498 u=ansible n=ansible | META: ran handlers
+2020-10-18 17:49:14,397 p=3498 u=ansible n=ansible | TASK [create partition] ***************************************************************************
+2020-10-18 17:49:14,931 p=3498 u=ansible n=ansible | ok: [ansibe-managed.local] => {
+    "changed": false,
+    "disk": {
+        "dev": "/dev/sdb",
+        "logical_block": 512,
+        "model": "QEMU QEMU HARDDISK",
+        "physical_block": 512,
+        "size": 10485760.0,
+        "table": "msdos",
+        "unit": "kib"
+    },
+    "partitions": [
+        {
+            "begin": 1024.0,
+            "end": 8388608.0,
+            "flags": [],
+            "fstype": "",
+            "name": "",
+            "num": 1,
+            "size": 8387584.0,
+            "unit": "kib"
+        }
+    ],
+    "script": ""
+}
+2020-10-18 17:49:14,942 p=3498 u=ansible n=ansible | TASK [create volume group] ************************************************************************
+2020-10-18 17:49:15,502 p=3498 u=ansible n=ansible | ok: [ansibe-managed.local] => {
+    "changed": false
+}
+2020-10-18 17:49:15,513 p=3498 u=ansible n=ansible | TASK [create logical volume] **********************************************************************
+2020-10-18 17:49:16,112 p=3498 u=ansible n=ansible | ok: [ansibe-managed.local] => {
+    "changed": false,
+    "lv": "logical-volume",
+    "size": 8188.0,
+    "vg": "test-group"
+}
+2020-10-18 17:49:16,122 p=3498 u=ansible n=ansible | TASK [create filesystem] **************************************************************************
+2020-10-18 17:49:16,654 p=3498 u=ansible n=ansible | ok: [ansibe-managed.local] => {
+    "changed": false
+}
+2020-10-18 17:49:16,665 p=3498 u=ansible n=ansible | TASK [create mount point] *************************************************************************
+2020-10-18 17:49:17,194 p=3498 u=ansible n=ansible | changed: [ansibe-managed.local] => {
+    "changed": true,
+    "path": "/mnt/mounti",
+    "state": "absent"
+}
+2020-10-18 17:49:17,205 p=3498 u=ansible n=ansible | TASK [create mount point directory...not file] ****************************************************
+2020-10-18 17:49:17,611 p=3498 u=ansible n=ansible | changed: [ansibe-managed.local] => {
+    "changed": true,
+    "gid": 0,
+    "group": "root",
+    "mode": "0755",
+    "owner": "root",
+    "path": "/mount/mounti",
+    "secontext": "unconfined_u:object_r:default_t:s0",
+    "size": 6,
+    "state": "directory",
+    "uid": 0
+}
+2020-10-18 17:49:17,622 p=3498 u=ansible n=ansible | TASK [mount the logical volume] *******************************************************************
+2020-10-18 17:49:18,180 p=3498 u=ansible n=ansible | changed: [ansibe-managed.local] => {
+    "changed": true,
+    "dump": "0",
+    "fstab": "/etc/fstab",
+    "fstype": "xfs",
+    "name": "/mnt/mounti",
+    "opts": "defaults",
+    "passno": "0",
+    "src": "/dev/test-group/logical-volume"
+}
+2020-10-18 17:49:18,191 p=3498 u=ansible n=ansible | TASK [add entry to fstab] *************************************************************************
+2020-10-18 17:49:18,708 p=3498 u=ansible n=ansible | ERROR! The requested handler 'reboot server' was not found in either the main handlers list nor in the listening handlers list
+2020-10-18 17:49:42,742 p=3597 u=ansible n=ansible | ansible-playbook 2.9.14
+  config file = /home/ansible/project/ansible.cfg
+  configured module search path = ['/home/ansible/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.6/site-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.6.8 (default, Apr 16 2020, 01:36:27) [GCC 8.3.1 20191121 (Red Hat 8.3.1-5)]
+2020-10-18 17:49:42,742 p=3597 u=ansible n=ansible | Using /home/ansible/project/ansible.cfg as config file
+2020-10-18 17:49:42,941 p=3597 u=ansible n=ansible | PLAYBOOK: create.yml ******************************************************************************
+2020-10-18 17:49:42,941 p=3597 u=ansible n=ansible | 1 plays in create.yml
+2020-10-18 17:49:42,943 p=3597 u=ansible n=ansible | PLAY [create partition + lv + filesystem + mount point + mount] ***********************************
+2020-10-18 17:49:42,951 p=3597 u=ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-10-18 17:49:44,095 p=3597 u=ansible n=ansible | ok: [ansibe-managed.local]
+2020-10-18 17:49:44,095 p=3597 u=ansible n=ansible | META: ran handlers
+2020-10-18 17:49:44,106 p=3597 u=ansible n=ansible | TASK [create partition] ***************************************************************************
+2020-10-18 17:49:44,642 p=3597 u=ansible n=ansible | ok: [ansibe-managed.local] => {
+    "changed": false,
+    "disk": {
+        "dev": "/dev/sdb",
+        "logical_block": 512,
+        "model": "QEMU QEMU HARDDISK",
+        "physical_block": 512,
+        "size": 10485760.0,
+        "table": "msdos",
+        "unit": "kib"
+    },
+    "partitions": [
+        {
+            "begin": 1024.0,
+            "end": 8388608.0,
+            "flags": [],
+            "fstype": "",
+            "name": "",
+            "num": 1,
+            "size": 8387584.0,
+            "unit": "kib"
+        }
+    ],
+    "script": ""
+}
+2020-10-18 17:49:44,653 p=3597 u=ansible n=ansible | TASK [create volume group] ************************************************************************
+2020-10-18 17:49:45,218 p=3597 u=ansible n=ansible | ok: [ansibe-managed.local] => {
+    "changed": false
+}
+2020-10-18 17:49:45,229 p=3597 u=ansible n=ansible | TASK [create logical volume] **********************************************************************
+2020-10-18 17:49:45,828 p=3597 u=ansible n=ansible | ok: [ansibe-managed.local] => {
+    "changed": false,
+    "lv": "logical-volume",
+    "size": 8188.0,
+    "vg": "test-group"
+}
+2020-10-18 17:49:45,839 p=3597 u=ansible n=ansible | TASK [create filesystem] **************************************************************************
+2020-10-18 17:49:46,374 p=3597 u=ansible n=ansible | ok: [ansibe-managed.local] => {
+    "changed": false
+}
+2020-10-18 17:49:46,385 p=3597 u=ansible n=ansible | TASK [create mount point] *************************************************************************
+2020-10-18 17:49:46,913 p=3597 u=ansible n=ansible | fatal: [ansibe-managed.local]: FAILED! => {
+    "changed": false
+}
+
+MSG:
+
+rmtree failed: [Errno 16] Device or resource busy: '/mnt/mounti'
+
+2020-10-18 17:49:46,914 p=3597 u=ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-10-18 17:49:46,914 p=3597 u=ansible n=ansible | ansibe-managed.local       : ok=5    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2020-10-18 17:50:11,817 p=3662 u=ansible n=ansible | ansible-playbook 2.9.14
+  config file = /home/ansible/project/ansible.cfg
+  configured module search path = ['/home/ansible/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3.6/site-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 3.6.8 (default, Apr 16 2020, 01:36:27) [GCC 8.3.1 20191121 (Red Hat 8.3.1-5)]
+2020-10-18 17:50:11,818 p=3662 u=ansible n=ansible | Using /home/ansible/project/ansible.cfg as config file
+2020-10-18 17:50:12,017 p=3662 u=ansible n=ansible | PLAYBOOK: create.yml ******************************************************************************
+2020-10-18 17:50:12,017 p=3662 u=ansible n=ansible | 1 plays in create.yml
+2020-10-18 17:50:12,019 p=3662 u=ansible n=ansible | PLAY [create partition + lv + filesystem + mount point + mount] ***********************************
+2020-10-18 17:50:12,026 p=3662 u=ansible n=ansible | TASK [Gathering Facts] ****************************************************************************
+2020-10-18 17:50:13,174 p=3662 u=ansible n=ansible | ok: [ansibe-managed.local]
+2020-10-18 17:50:13,174 p=3662 u=ansible n=ansible | META: ran handlers
+2020-10-18 17:50:13,185 p=3662 u=ansible n=ansible | TASK [create partition] ***************************************************************************
+2020-10-18 17:50:14,725 p=3662 u=ansible n=ansible | ok: [ansibe-managed.local] => {
+    "changed": false,
+    "disk": {
+        "dev": "/dev/sdb",
+        "logical_block": 512,
+        "model": "QEMU QEMU HARDDISK",
+        "physical_block": 512,
+        "size": 10485760.0,
+        "table": "msdos",
+        "unit": "kib"
+    },
+    "partitions": [
+        {
+            "begin": 1024.0,
+            "end": 8388608.0,
+            "flags": [],
+            "fstype": "",
+            "name": "",
+            "num": 1,
+            "size": 8387584.0,
+            "unit": "kib"
+        }
+    ],
+    "script": ""
+}
+2020-10-18 17:50:14,736 p=3662 u=ansible n=ansible | TASK [create volume group] ************************************************************************
+2020-10-18 17:50:15,326 p=3662 u=ansible n=ansible | ok: [ansibe-managed.local] => {
+    "changed": false
+}
+2020-10-18 17:50:15,337 p=3662 u=ansible n=ansible | TASK [create logical volume] **********************************************************************
+2020-10-18 17:50:15,963 p=3662 u=ansible n=ansible | ok: [ansibe-managed.local] => {
+    "changed": false,
+    "lv": "logical-volume",
+    "size": 8188.0,
+    "vg": "test-group"
+}
+2020-10-18 17:50:15,974 p=3662 u=ansible n=ansible | TASK [create filesystem] **************************************************************************
+2020-10-18 17:50:16,502 p=3662 u=ansible n=ansible | ok: [ansibe-managed.local] => {
+    "changed": false
+}
+2020-10-18 17:50:16,513 p=3662 u=ansible n=ansible | TASK [create mount point directory...not file] ****************************************************
+2020-10-18 17:50:17,044 p=3662 u=ansible n=ansible | ok: [ansibe-managed.local] => {
+    "changed": false,
+    "gid": 0,
+    "group": "root",
+    "mode": "0755",
+    "owner": "root",
+    "path": "/mount/mounti",
+    "secontext": "unconfined_u:object_r:default_t:s0",
+    "size": 6,
+    "state": "directory",
+    "uid": 0
+}
+2020-10-18 17:50:17,056 p=3662 u=ansible n=ansible | TASK [mount the logical volume] *******************************************************************
+2020-10-18 17:50:17,588 p=3662 u=ansible n=ansible | ok: [ansibe-managed.local] => {
+    "changed": false,
+    "dump": "0",
+    "fstab": "/etc/fstab",
+    "fstype": "xfs",
+    "name": "/mnt/mounti",
+    "opts": "defaults",
+    "passno": "0",
+    "src": "/dev/test-group/logical-volume"
+}
+2020-10-18 17:50:17,600 p=3662 u=ansible n=ansible | TASK [add entry to fstab] *************************************************************************
+2020-10-18 17:50:18,118 p=3662 u=ansible n=ansible | changed: [ansibe-managed.local] => {
+    "changed": true,
+    "cmd": "/usr/bin/echo '/dev/test-group/logical-volume /mnt/mounti' xfs defaults 0 0",
+    "delta": "0:00:00.002712",
+    "end": "2020-10-18 11:50:18.063804",
+    "rc": 0,
+    "start": "2020-10-18 11:50:18.061092"
+}
+
+STDOUT:
+
+/dev/test-group/logical-volume /mnt/mounti xfs defaults 0 0
+
+2020-10-18 17:50:18,129 p=3662 u=ansible n=ansible | TASK [verify] *************************************************************************************
+2020-10-18 17:50:18,538 p=3662 u=ansible n=ansible | changed: [ansibe-managed.local] => {
+    "changed": true,
+    "cmd": "lsblk ; cat /etc/fstab | grep logical-volume ; df -h",
+    "delta": "0:00:00.007841",
+    "end": "2020-10-18 11:50:18.482117",
+    "rc": 0,
+    "start": "2020-10-18 11:50:18.474276"
+}
+
+STDOUT:
+
+NAME                            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda                               8:0    0   32G  0 disk 
+├─sda1                            8:1    0    1G  0 part /boot
+└─sda2                            8:2    0   31G  0 part 
+  ├─cl-root                     253:0    0 28.5G  0 lvm  /
+  └─cl-swap                     253:1    0  2.5G  0 lvm  [SWAP]
+sdb                               8:16   0   10G  0 disk 
+└─sdb1                            8:17   0    8G  0 part 
+  └─test--group-logical--volume 253:2    0    8G  0 lvm  /mnt/mounti
+sr0                              11:0    1  7.7G  0 rom  
+/dev/test-group/logical-volume /mnt/mounti xfs defaults 0 0
+Filesystem                               Size  Used Avail Use% Mounted on
+devtmpfs                                 1.9G     0  1.9G   0% /dev
+tmpfs                                    1.9G     0  1.9G   0% /dev/shm
+tmpfs                                    1.9G  8.9M  1.9G   1% /run
+tmpfs                                    1.9G     0  1.9G   0% /sys/fs/cgroup
+/dev/mapper/cl-root                       29G  4.6G   24G  16% /
+/dev/sda1                                976M  192M  717M  22% /boot
+tmpfs                                    378M  4.0K  378M   1% /run/user/1001
+/dev/mapper/test--group-logical--volume  8.0G   90M  7.9G   2% /mnt/mounti
+
+2020-10-18 17:50:18,549 p=3662 u=ansible n=ansible | TASK [output result] ******************************************************************************
+2020-10-18 17:50:18,579 p=3662 u=ansible n=ansible | ok: [ansibe-managed.local] => {}
+
+MSG:
+
+The results are NAME                            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sda                               8:0    0   32G  0 disk 
+├─sda1                            8:1    0    1G  0 part /boot
+└─sda2                            8:2    0   31G  0 part 
+  ├─cl-root                     253:0    0 28.5G  0 lvm  /
+  └─cl-swap                     253:1    0  2.5G  0 lvm  [SWAP]
+sdb                               8:16   0   10G  0 disk 
+└─sdb1                            8:17   0    8G  0 part 
+  └─test--group-logical--volume 253:2    0    8G  0 lvm  /mnt/mounti
+sr0                              11:0    1  7.7G  0 rom  
+/dev/test-group/logical-volume /mnt/mounti xfs defaults 0 0
+Filesystem                               Size  Used Avail Use% Mounted on
+devtmpfs                                 1.9G     0  1.9G   0% /dev
+tmpfs                                    1.9G     0  1.9G   0% /dev/shm
+tmpfs                                    1.9G  8.9M  1.9G   1% /run
+tmpfs                                    1.9G     0  1.9G   0% /sys/fs/cgroup
+/dev/mapper/cl-root                       29G  4.6G   24G  16% /
+/dev/sda1                                976M  192M  717M  22% /boot
+tmpfs                                    378M  4.0K  378M   1% /run/user/1001
+/dev/mapper/test--group-logical--volume  8.0G   90M  7.9G   2% /mnt/mounti
+
+2020-10-18 17:50:18,579 p=3662 u=ansible n=ansible | META: ran handlers
+2020-10-18 17:50:18,580 p=3662 u=ansible n=ansible | META: ran handlers
+2020-10-18 17:50:18,581 p=3662 u=ansible n=ansible | PLAY RECAP ****************************************************************************************
+2020-10-18 17:50:18,581 p=3662 u=ansible n=ansible | ansibe-managed.local       : ok=10   changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

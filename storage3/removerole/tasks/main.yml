@@ -1,0 +1,38 @@
+---
+- name: unmount /mnt/mount
+  mount:
+    path: /mnt/mount
+    state: unmounted
+
+- name: remove /mnt/mount
+  file:
+    path: /mnt/mount
+    state: absent
+
+- name: remove logical volume /dev/mapper/test--group-logical--volume
+  lvol:
+    lv: logical-volume
+    vg: test-group
+    state: absent
+    force: yes
+
+- name: remove the volume group test-group
+  lvg:
+    vg: test-group
+    state: absent
+    force: yes
+
+- name: remove any partitions
+  parted:
+    device: /dev/sdb
+    number: 1
+    state: absent
+
+- name: verify partitions
+  shell: lsblk ; df -h
+  register: result
+
+- name: display result
+  debug:
+    msg: "{{ result.stdout }}"
+...

@@ -1,0 +1,50 @@
+---
+- name: create a partition, create a vg + lv + filesystem + mount
+  hosts: all
+  roles:
+    - role: removerole
+  post_tasks:
+    - name: create partition
+      parted:
+        device: /dev/sdb
+        number: 1
+        part_start: 1MiB
+        part_end: 7GiB
+        state: present
+
+    - name: create volume group
+      lvg:
+        pvs: /dev/sdb1
+        vg: test-group
+
+    - name: create logical volume
+      lvol:
+        vg: test-group
+        lv: logical-volume
+        size: +100%FREE
+
+    - name: create filesystem
+      filesystem:
+        fstype: xfs
+        dev: /dev/test-group/logical-volume
+
+    - name: create mount point
+      file:
+        path: /mnt/mount
+        state: directory
+
+    - name: mount volume
+      mount:
+        path: /mnt/mount
+        src: /dev/test-group/logical-volume
+        state: mounted
+        fstype: xfs
+
+    - name: update fstab
+      shell: /usr/bin/echo "/dev/test-group/logical-volume /mnt/mount xfs defaults 0 0"
+      register: check
+
+    - name: verify
+      debug:
+        msg: "{{ check.stdout }}"     
+...

@@ -1,0 +1,53 @@
+---
+- name: create partition + lv + filesystem + mount point + mount
+  hosts: web
+  tasks:
+    - name: create partition
+      parted:
+        device: /dev/sdb
+        number: 1
+        part_start: 1MiB
+        part_end: 8192MiB
+        state: present 
+
+    - name: create volume group
+      lvg:
+        pvs: /dev/sdb1
+        vg: test-group
+        state: present
+
+    - name: create logical volume
+      lvol:
+        lv: logical-volume
+        vg: test-group
+        size: +100%FREE
+        state: present
+
+    - name: create filesystem
+      filesystem:
+        fstype: xfs
+        dev: /dev/test-group/logical-volume
+
+    - name: create mount point directory...not file
+      file:
+        path: /mount/mounti
+        state: directory
+
+    - name: mount the logical volume
+      mount:
+        src: /dev/test-group/logical-volume
+        path: /mnt/mounti
+        state: mounted
+        fstype: xfs
+
+    - name: add entry to fstab
+      shell: /usr/bin/echo '/dev/test-group/logical-volume /mnt/mounti' xfs defaults 0 0
+
+    - name: verify
+      shell: lsblk ; cat /etc/fstab | grep logical-volume ; df -h
+      register: result
+
+    - name: output result
+      debug:
+        msg: The results are {{ result.stdout }}
+...

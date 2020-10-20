@@ -1,0 +1,39 @@
+---
+- name: delete any partitions on /dev/sdb
+  hosts: web
+  tasks:
+    - name: first unmounting the drive
+      mount:
+        path: /mnt/testmounti
+        state: absent
+      when: ansible_distribution_major_version == "8" 
+
+    - name: second remove the logical volume
+      lvol:
+        vg: volume-group
+        lv: logical-volume
+        state: absent
+        force: yes
+
+    - name: third remove the volume group
+      lvg:
+        vg: volume-group
+        state: absent
+
+    - name: fourth remove any partitions
+      parted:
+        device: /dev/sdb
+        state: absent
+        number: 1
+
+    - name: verify that the playbook worked
+      shell: lsblk ; fdisk -l /dev/sdb
+      register: result
+
+    - name: output result
+      debug:
+        msg: the results are {{ result.stdout }}
+
+
+
+
